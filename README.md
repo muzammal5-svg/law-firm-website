@@ -366,11 +366,6 @@ This project is provided as-is for Counsel & Clarity. All content and design are
 
 ## Contact
 
-For questions about this website, contact:
-- **Email**: contact@counselclarity.com
-- **Phone**: +44 (0) 20 7946 0123
-- **Address**: Chancery Lane, London, WC2A 1LS, United Kingdom
-
 ---
 
 **Last Updated**: July 2026
