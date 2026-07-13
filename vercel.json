@@ -33,7 +33,9 @@
     }
   ],
   "env": {
-    "VITE_FORMSPREE_ENDPOINT": "@formspree_endpoint",
-    "VITE_WHATSAPP_NUMBER": "@whatsapp_number"
-  }
+    "VITE_FORMSPREE_ENDPOINT": "https://formspree.io/f/xyzdefault",
+    "VITE_WHATSAPP_NUMBER": "447700900123"
+  },
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist"
 }
