@@ -78,17 +78,18 @@ export default function Navbar() {
 
         {/* Mobile Menu - Luxury Styling */}
         {mobileMenuOpen && (
-          <div className="md:hidden border-t border-luxe-gold/10 bg-luxe-cream/95 backdrop-blur-lg p-margin-mobile space-y-3 animate-fade-in-up">
+          <div className="md:hidden border-t border-luxe-gold/10 bg-luxe-black/95 backdrop-blur-lg p-margin-mobile space-y-3 animate-fade-in-up">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`block px-4 py-3 rounded-lg font-sans font-medium text-sm tracking-wide transition-all duration-300 ${
+                className={`block px-4 py-3 rounded-lg font-sans font-bold text-sm tracking-wide transition-all duration-300 ${
                   isActive(link.path)
-                    ? 'bg-luxe-gold text-luxe-black'
-                    : 'text-luxe-black hover:bg-luxe-gold/10'
+                    ? 'bg-luxe-gold'
+                    : 'text-luxe-cream hover:bg-luxe-gold/20'
                 }`}
+                style={isActive(link.path) ? { color: '#000000' } : {}}
               >
                 {link.label}
               </Link>
@@ -96,7 +97,8 @@ export default function Navbar() {
             <Link
               to="/consultation"
               onClick={() => setMobileMenuOpen(false)}
-              className="block px-4 py-3 bg-luxe-black text-luxe-cream rounded-lg font-sans font-semibold text-sm text-center tracking-wide transition-all duration-300 hover:shadow-luxury-lg"
+              className="block px-4 py-3 bg-luxe-gold rounded-lg font-sans font-bold text-sm text-center tracking-wide transition-all duration-300 hover:shadow-luxury-lg"
+              style={{ color: '#000000' }}
             >
               Book Consultation
             </Link>

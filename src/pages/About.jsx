@@ -230,7 +230,8 @@ export default function About() {
           <AnimateOnScroll animation="fadeInUp" delay={0.1} className="flex flex-col md:flex-row justify-center gap-4 pt-4">
             <Link
               to="/consultation"
-              className="inline-flex items-center justify-center px-8 py-4 bg-luxe-gold text-luxe-black rounded-lg font-sans font-semibold text-sm tracking-wide transition-all duration-300 hover:shadow-luxury-lg hover:translate-y-[-2px]"
+              className="inline-flex items-center mb-4 justify-center px-8 py-4 bg-luxe-gold rounded-lg font-sans font-bold text-sm tracking-wide transition-all duration-300 hover:shadow-luxury-lg hover:translate-y-[-2px]"
+              style={{ color: '#000000' }}
             >
               Schedule Consultation
             </Link>

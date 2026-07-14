@@ -50,7 +50,8 @@ export default function CTABanner({
         <div className="flex flex-col sm:flex-row gap-6 justify-center mt-stack-md">
           <Link
             to="/consultation"
-            className="group inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-luxe-gold to-luxe-gold-dark text-luxe-black rounded-xl font-sans font-semibold text-sm tracking-widest uppercase transition-all duration-300 hover:shadow-luxury-xl hover:-translate-y-1 active:translate-y-0 transform"
+            className="group inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-luxe-gold to-luxe-gold-dark rounded-xl font-sans font-bold text-sm tracking-widest uppercase transition-all duration-300 hover:shadow-luxury-xl hover:-translate-y-1 active:translate-y-0 transform"
+            style={{ color: '#000000' }}
           >
             <MaterialIcon name="calendar_today" className="mr-3 text-lg" />
             Schedule Consultation

@@ -112,7 +112,8 @@ export default function FAQ() {
             </p>
             <Link
               to="/consultation"
-              className="inline-flex items-center justify-center px-8 py-4 bg-luxe-gold text-luxe-black rounded-lg font-sans font-semibold text-sm tracking-wide hover:shadow-luxury-lg hover:translate-y-[-2px] transition-all"
+              className="inline-flex items-center justify-center px-8 py-4 bg-luxe-gold rounded-lg font-sans font-bold text-sm tracking-wide hover:shadow-luxury-lg hover:translate-y-[-2px] transition-all"
+              style={{ color: '#000000' }}
             >
               Book Free Consultation
             </Link>

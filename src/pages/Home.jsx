@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import PageMeta from '../components/ui/PageMeta'
 import AnimateOnScroll from '../components/ui/AnimateOnScroll'
 import MaterialIcon from '../components/ui/MaterialIcon'
@@ -12,6 +12,16 @@ export default function Home() {
   const [currentCarouselIndex, setCurrentCarouselIndex] = useState(0)
   const [showVideoModal, setShowVideoModal] = useState(false)
   const [selectedVideoUrl, setSelectedVideoUrl] = useState('')
+  const [isMobileView, setIsMobileView] = useState(typeof window !== 'undefined' ? window.innerWidth < 768 : false)
+
+  // Detect screen size changes
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobileView(window.innerWidth < 768)
+    }
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   const testimonials = [
     {
@@ -71,11 +81,21 @@ export default function Home() {
   ]
 
   const itemsPerPage = 3
-  const totalPages = Math.ceil(testimonials.length / itemsPerPage)
+  const mobileItemsPerPage = 1 // 1 card per page on mobile
+  const currentItemsPerPage = isMobileView ? mobileItemsPerPage : itemsPerPage
+  const totalPages = Math.ceil(testimonials.length / currentItemsPerPage)
   const visibleTestimonials = testimonials.slice(
-    currentCarouselIndex * itemsPerPage,
-    (currentCarouselIndex + 1) * itemsPerPage
+    currentCarouselIndex * currentItemsPerPage,
+    (currentCarouselIndex + 1) * currentItemsPerPage
   )
+
+  // Auto-loop carousel every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentCarouselIndex((prev) => (prev === totalPages - 1 ? 0 : prev + 1))
+    }, 5000)
+    return () => clearInterval(interval)
+  }, [totalPages])
 
   const handlePrevCarousel = () => {
     setCurrentCarouselIndex((prev) => (prev === 0 ? totalPages - 1 : prev - 1))

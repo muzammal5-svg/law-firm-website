@@ -185,7 +185,8 @@ export default function BlogPost() {
               </p>
               <Link
                 to="/consultation"
-                className="block w-full bg-luxe-gold text-luxe-black px-4 py-3 rounded-lg font-sans font-semibold text-sm text-center hover:shadow-luxury-md hover:bg-luxe-gold-dark transition-all tracking-wide uppercase"
+                className="block w-full bg-luxe-gold px-4 py-3 rounded-lg font-sans font-bold text-sm text-center hover:shadow-luxury-md hover:bg-luxe-gold-dark transition-all tracking-wide uppercase"
+                style={{ color: '#000000' }}
               >
                 Book Consultation
               </Link>
