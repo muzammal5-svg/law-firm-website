@@ -8,9 +8,9 @@ import MobileConsultBar from './MobileConsultBar'
  */
 export default function Layout({ children }) {
   return (
-    <div className="min-h-screen flex flex-col bg-luxe-cream text-luxe-black font-sans">
+    <div className="min-h-screen flex flex-col bg-luxe-cream text-luxe-black font-sans overflow-x-hidden">
       <Navbar />
-      <main className="flex-grow">
+      <main className="flex-grow overflow-x-hidden">
         {children}
       </main>
       <Footer />
