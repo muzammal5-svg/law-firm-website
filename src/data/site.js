@@ -1,11 +1,19 @@
+/**
+ * SITE CONFIGURATION (Legacy)
+ * This file now pulls from firmConfig.js for centralized management
+ * Kept for backward compatibility - prefer using useFirmConfig() hook
+ */
+
+import firmConfig from './firmConfig'
+
 export const SITE = {
-  name: 'Counsel & Clarity',
-  advocate: 'Advocate Julian Thorne',
-  phone: '+44 (0) 20 7946 0123',
-  phoneRaw: '+442079460123',
-  whatsapp: '447700900123',
-  email: 'contact@counselclarity.com',
-  address: 'Chancery Lane, London, WC2A 1LS, United Kingdom',
+  name: firmConfig.firmName,
+  advocate: firmConfig.attorney.name,
+  phone: firmConfig.contact.phone,
+  phoneRaw: firmConfig.contact.phoneRaw,
+  whatsapp: firmConfig.contact.whatsapp,
+  email: firmConfig.contact.email,
+  address: firmConfig.contact.address.full,
 }
 
 export const NAV_LINKS = [

@@ -5,9 +5,12 @@ import AnimateOnScroll from '../components/ui/AnimateOnScroll'
 import MaterialIcon from '../components/ui/MaterialIcon'
 import CTABanner from '../components/layout/CTABanner'
 import { practiceAreas } from '../data/practiceAreas'
+import { useFirmConfig } from '../context/FirmConfigContext'
+import { getTerm } from '../utils/terminology'
 import blogPosts from '../data/blogPosts.json'
 
 export default function Home() {
+  const { config } = useFirmConfig()
   const featuredPosts = blogPosts.slice(0, 3)
   const [currentCarouselIndex, setCurrentCarouselIndex] = useState(0)
   const [showVideoModal, setShowVideoModal] = useState(false)
@@ -23,62 +26,8 @@ export default function Home() {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
-  const testimonials = [
-    {
-      name: 'Sawera Shafiq',
-      title: 'Regent College London',
-      hasVideo: true,
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCgIs1RA05fB_lpJ28Hs2248lvhbXHu-pT3qHxU0SywcJ5ccNKXMeksFzK2TYykqafoyPMP5jiRXKBWA6EDAzmdA0972yW-JD5CP1kv3IdeLjHK3-doR9inDMQcI9XSPP9ZjVzvfryec4-i15Bq8Eq20UgeGu-DmjDAuzzm0fXCcAJ2xb6ntJoGXIGaofAHrg4OdjL2FnSYSoR_pfKsuNy_uRQ8CSnQJ6QmJgQnowWhLpNuPznDo5bHJ3d41kjN6fOTVFgJplcOcKo',
-      videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-      text: 'Next Consultancy has made my UK Visa process a breeze. Their support and expertise were invaluable. I highly recommend them to anyone looking for reliable and professional assistance.',
-      rating: 5,
-    },
-    {
-      name: 'Rohan Ahmed',
-      title: 'University of Greenwich',
-      hasVideo: true,
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAiV21zPnNi7CEOHHNFoMkg1ru_v8szPbbFmVfUmOdbfoQkLMa_T9muXHMTNoANoJbHuEKHQVj4uqlkwt-8VQm6cSsh1sJMKtVB8Ul2_1zP1SxLXnSpz_HEsenQuE-As__MqMeoVWgZPG6K7TMMRz5b7XpiIZvvAbquiKygrDO-irTEIRb-0OcpjeoGs0TU8UpF3-MRGfD7cbqL03eD9LkEBInjVIdeqWWmNbbP7JEgk14-P91rGc2CrS6TrbPg-pybMvRropNaZRY',
-      videoUrl: 'https://www.youtube.com/embed/9bZkp7q19f0',
-      text: 'The staff of Next Consultancy is very professional and highly appreciated. They helped me in getting a 5000 Pounds scholarship from the University of Greenwich. Highly recommended.',
-      rating: 5,
-    },
-    {
-      name: 'Nasik Ngeem',
-      title: 'BPP University',
-      hasVideo: true,
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBsfIDd5Q7vCXacEgoeXutacjJHenUQB3O9_kRQm_oSL4q7ggrWjDm90UKYvfskwvEWX5xSCi0DH7aeiulAU0a-ocncSv6IiOnizVDTk6qmSNIdA8yOeQhRbLPrxUdjdSt4a7rxZD6WkJLuDK0qrpxIkYz26EPDCOnI2KHut_1t--hCdUNM6u-nFN1EMvCjNJ1_l2glONRlPl1vszLKouyMLi4X--QKMliVP_rnSwT0D2ENB4mzBdBjFKr0i8zznS2bQwM8neHePFU',
-      videoUrl: 'https://www.youtube.com/embed/jNQXAC9IVRw',
-      text: 'I just completed my process of getting a UK Study visa and I am very thankful and grateful to Next Consultancy for their extensive support. I recommend Next Consultancy to make your study abroad dream true.',
-      rating: 5,
-    },
-    {
-      name: 'Zoha Mehtab',
-      title: 'BPP University',
-      hasVideo: true,
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCgIs1RA05fB_lpJ28Hs2248lvhbXHu-pT3qHxU0SywcJ5ccNKXMeksFzK2TYykqafoyPMP5jiRXKBWA6EDAzmdA0972yW-JD5CP1kv3IdeLjHK3-doR9inDMQcI9XSPP9ZjVzvfryec4-i15Bq8Eq20UgeGu-DmjDAuzzm0fXCcAJ2xb6ntJoGXIGaofAHrg4OdjL2FnSYSoR_pfKsuNy_uRQ8CSnQJ6QmJgQnowWhLpNuPznDo5bHJ3d41kjN6fOTVFgJplcOcKo',
-      videoUrl: 'https://www.youtube.com/embed/aqz-KE-bpKQ',
-      text: 'Thanks to Next Consultancy and their team members, who helped me and cooperated with me in every step of the process.',
-      rating: 5,
-    },
-    {
-      name: 'Ahmed Hassan',
-      title: 'Kingston University',
-      hasVideo: true,
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCgIs1RA05fB_lpJ28Hs2248lvhbXHu-pT3qHxU0SywcJ5ccNKXMeksFzK2TYykqafoyPMP5jiRXKBWA6EDAzmdA0972yW-JD5CP1kv3IdeLjHK3-doR9inDMQcI9XSPP9ZjVzvfryec4-i15Bq8Eq20UgeGu-DmjDAuzzm0fXCcAJ2xb6ntJoGXIGaofAHrg4OdjL2FnSYSoR_pfKsuNy_uRQ8CSnQJ6QmJgQnowWhLpNuPznDo5bHJ3d41kjN6fOTVFgJplcOcKo',
-      videoUrl: 'https://www.youtube.com/embed/ZZ5yZ5U8-rY',
-      text: 'Exceptional service and attention to detail. The team went above and beyond to ensure my visa application was perfect. Truly grateful for their dedication and professionalism.',
-      rating: 5,
-    },
-    {
-      name: 'Fatima Khan',
-      title: 'City University London',
-      hasVideo: true,
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBsfIDd5Q7vCXacEgoeXutacjJHenUQB3O9_kRQm_oSL4q7ggrWjDm90UKYvfskwvEWX5xSCi0DH7aeiulAU0a-ocncSv6IiOnizVDTk6qmSNIdA8yOeQhRbLPrxUdjdSt4a7rxZD6WkJLuDK0qrpxIkYz26EPDCOnI2KHut_1t--hCdUNM6u-nFN1EMvCjNJ1_l2glONRlPl1vszLKouyMLi4X--QKMliVP_rnSwT0D2ENB4mzBdBjFKr0i8zznS2bQwM8neHePFU',
-      videoUrl: 'https://www.youtube.com/embed/K7gB6zVRUyU',
-      text: 'Outstanding support throughout the entire process. Their knowledge of UK immigration is unparalleled. I would not hesitate to recommend them to anyone seeking legal assistance.',
-      rating: 5,
-    },
-  ]
+  // Use testimonials from config (generic DEMO data)
+  const testimonials = config.testimonials
 
   const itemsPerPage = 3
   const mobileItemsPerPage = 1 // 1 card per page on mobile
@@ -114,8 +63,8 @@ export default function Home() {
     <>
       <PageMeta
         title="Home"
-        description="Advocate Julian Thorne provides expert legal representation. Luxury legal services in London."
-        image="https://lh3.googleusercontent.com/aida-public/AB6AXuAiV21zPnNi7CEOHHNFoMkg1ru_v8szPbbFmVfUmOdbfoQkLMa_T9muXHMTNoANoJbHuEKHQVj4uqlkwt-8VQm6cSsh1sJMKtVB8Ul2_1zP1SxLXnSpz_HEsenQuE-As__MqMeoVWgZPG6K7TMMRz5b7XpiIZvvAbquiKygrDO-irTEIRb-0OcpjeoGs0TU8UpF3-MRGfD7cbqL03eD9LkEBInjVIdeqWWmNbbP7JEgk14-P91rGc2CrS6TrbPg-pybMvRropNaZRY"
+        description={config.seo.defaultDescription}
+        image={config.seo.defaultImage}
       />
 
       {/* Luxury Hero Section */}
@@ -137,7 +86,7 @@ export default function Home() {
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-luxe-gold/40 bg-luxe-gold/5 mb-stack-md">
                 <div className="w-2 h-2 rounded-full bg-luxe-gold" />
                 <span className="font-sans text-xs tracking-widest uppercase text-luxe-gold font-semibold">
-                  Award-Winning Advocate
+                  {getTerm('attorney', config.region)} at Law
                 </span>
               </div>
             </AnimateOnScroll>
@@ -145,7 +94,7 @@ export default function Home() {
             {/* Hero Headline - Serif for Luxury */}
             <AnimateOnScroll animation="fadeInUp" delay={0.1}>
               <h1 className="font-serif text-display-lg-mobile md:text-display-lg text-luxe-black mb-stack-md leading-tight">
-                Premium Legal Excellence in London
+                {config.tagline}
               </h1>
             </AnimateOnScroll>
 
@@ -189,9 +138,9 @@ export default function Home() {
         <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
             {[
-              { number: '15+', label: 'Years Trusted Advocacy', icon: 'school' },
-              { number: '500+', label: 'Successful Resolutions', icon: 'verified' },
-              { number: '98%', label: 'Client Satisfaction', icon: 'sentiment_satisfied' },
+              { number: config.stats.yearsExperience, label: 'Years Trusted Advocacy', icon: 'school' },
+              { number: config.stats.casesResolved, label: 'Successful Resolutions', icon: 'verified' },
+              { number: config.stats.successRate, label: 'Client Satisfaction', icon: 'sentiment_satisfied' },
             ].map((stat, idx) => (
               <AnimateOnScroll key={idx} animation="fadeIn" delay={idx * 0.1}>
                 <div className="text-center border-b border-luxe-gold/20 pb-8">

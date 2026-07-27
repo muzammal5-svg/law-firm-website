@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import { LeadsProvider } from './context/LeadsContext'
+import { FirmConfigProvider } from './context/FirmConfigContext'
 import { shouldLoadTracking, initializeTracking } from './utils/tracking'
 import Layout from './components/layout/Layout'
 import Home from './pages/Home'
@@ -16,7 +17,6 @@ import AdminDashboard from './pages/AdminDashboard'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsOfService from './pages/TermsOfService'
 import Disclaimer from './pages/Disclaimer'
-import WhatsAppFloatingButton from './components/ui/WhatsAppFloatingButton'
 import CookieConsentBanner from './components/ui/CookieConsentBanner'
 
 function App() {
@@ -29,30 +29,31 @@ function App() {
 
   return (
     <Router>
-      <LeadsProvider>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/practice-areas" element={<PracticeAreas />} />
-            <Route path="/practice-areas/:slug" element={<PracticeAreaDetail />} />
-            <Route path="/consultation" element={<Consultation />} />
-            <Route path="/faq" element={<FAQ />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:slug" element={<BlogPost />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/admin/dashboard" element={<AdminDashboard />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/terms-of-service" element={<TermsOfService />} />
-            <Route path="/disclaimer" element={<Disclaimer />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
-        </Layout>
-        
-        {/* Global Components */}
-        <WhatsAppFloatingButton />
-        <CookieConsentBanner />
-      </LeadsProvider>
+      <FirmConfigProvider>
+        <LeadsProvider>
+          <Layout>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/practice-areas" element={<PracticeAreas />} />
+              <Route path="/practice-areas/:slug" element={<PracticeAreaDetail />} />
+              <Route path="/consultation" element={<Consultation />} />
+              <Route path="/faq" element={<FAQ />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:slug" element={<BlogPost />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/admin/dashboard" element={<AdminDashboard />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms-of-service" element={<TermsOfService />} />
+              <Route path="/disclaimer" element={<Disclaimer />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+          </Layout>
+          
+          {/* Global Components */}
+          <CookieConsentBanner />
+        </LeadsProvider>
+      </FirmConfigProvider>
     </Router>
   )
 }
