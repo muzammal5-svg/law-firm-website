@@ -1,5 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import { useEffect } from 'react'
 import { LeadsProvider } from './context/LeadsContext'
+import { shouldLoadTracking, initializeTracking } from './utils/tracking'
 import Layout from './components/layout/Layout'
 import Home from './pages/Home'
 import About from './pages/About'
@@ -14,8 +16,17 @@ import AdminDashboard from './pages/AdminDashboard'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsOfService from './pages/TermsOfService'
 import Disclaimer from './pages/Disclaimer'
+import WhatsAppFloatingButton from './components/ui/WhatsAppFloatingButton'
+import CookieConsentBanner from './components/ui/CookieConsentBanner'
 
 function App() {
+  useEffect(() => {
+    // Initialize tracking if user has previously consented
+    if (shouldLoadTracking()) {
+      initializeTracking()
+    }
+  }, [])
+
   return (
     <Router>
       <LeadsProvider>
@@ -37,6 +48,10 @@ function App() {
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Layout>
+        
+        {/* Global Components */}
+        <WhatsAppFloatingButton />
+        <CookieConsentBanner />
       </LeadsProvider>
     </Router>
   )
