@@ -6,7 +6,7 @@ import MaterialIcon from '../components/ui/MaterialIcon'
 import { faqCategories } from '../data/faqData'
 
 export default function FAQ() {
-  const [activeCategory, setActiveCategory] = useState('legal-process')
+  const [activeCategory, setActiveCategory] = useState('criminal-law')
   const [expandedItem, setExpandedItem] = useState(null)
 
   const currentCategory = faqCategories.find(cat => cat.id === activeCategory)
@@ -102,21 +102,35 @@ export default function FAQ() {
         </div>
       </section>
 
-      {/* Luxury CTA */}
+      {/* CTA */}
       <section className="bg-luxe-black text-luxe-cream py-stack-lg px-margin-mobile text-center">
         <div className="max-w-3xl mx-auto">
           <AnimateOnScroll animation="fadeInUp">
-            <h2 className="font-serif text-headline-md mb-stack-md">Still Have Questions?</h2>
-            <p className="font-sans text-body-lg text-luxe-cream/80 mb-stack-lg">
-              Schedule a consultation with Julian Thorne for personalized answers to your legal questions.
+            <div className="trust-badge mx-auto mb-5 w-fit">
+              <MaterialIcon name="calendar_today" className="text-sm" />
+              Free 30-Minute Consultation
+            </div>
+            <h2 className="font-serif text-headline-md mb-4">Still Have Questions?</h2>
+            <p className="font-sans text-body-lg text-luxe-cream/70 mb-8 max-w-xl mx-auto">
+              Speak directly with Rana Muhammad Zahid Muneer for clear, honest answers about your
+              criminal, family, property, or civil legal matter.
             </p>
-            <Link
-              to="/consultation"
-              className="inline-flex items-center justify-center px-8 py-4 bg-luxe-gold rounded-lg font-sans font-bold text-sm tracking-wide hover:shadow-luxury-lg hover:translate-y-[-2px] transition-all"
-              style={{ color: '#000000' }}
-            >
-              Book Free Consultation
-            </Link>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <Link
+                to="/consultation"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-luxe-gold text-luxe-black rounded-lg font-sans font-bold text-sm tracking-wide hover:bg-luxe-gold-dark transition-all"
+              >
+                <MaterialIcon name="calendar_today" />
+                Book Free Consultation
+              </Link>
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-white/20 text-white rounded-lg font-sans font-semibold text-sm hover:border-luxe-gold hover:text-luxe-gold transition-all"
+              >
+                <MaterialIcon name="mail" />
+                Send a Message
+              </Link>
+            </div>
           </AnimateOnScroll>
         </div>
       </section>

@@ -8,7 +8,7 @@ export default function PrivacyPolicy() {
     <>
       <PageMeta
         title="Privacy Policy"
-        description="Learn how Counsel & Clarity protects your personal information and respects your privacy."
+        description="Learn how Rana M. Zahid Muneer Advocate protects your personal information and respects your privacy."
       />
 
       {/* Luxury Hero */}
@@ -44,7 +44,7 @@ export default function PrivacyPolicy() {
               <div>
                 <h2 className="font-serif text-headline-md text-luxe-black mb-stack-md">Introduction</h2>
                 <p className="font-sans text-body-lg text-luxe-grey leading-relaxed">
-                  Counsel & Clarity ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains our practices regarding the collection, use, disclosure, and safeguard of your personal information when you visit our website and use our services.
+                  Rana M. Zahid Muneer Advocate ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains our practices regarding the collection, use, disclosure, and safeguarding of your personal information when you visit our website and use our services.
                 </p>
               </div>
 
@@ -124,7 +124,7 @@ export default function PrivacyPolicy() {
                   ))}
                 </ul>
                 <p className="font-sans text-body-md text-luxe-grey">
-                  To exercise these rights, contact us at <a href={`mailto:contact@counselclarity.com`} className="text-luxe-gold hover:underline">contact@counselclarity.com</a>.
+                  To exercise these rights, contact us at <a href="mailto:muhammad.zahidmuneer@gmail.com" className="text-luxe-gold hover:underline">muhammad.zahidmuneer@gmail.com</a>.
                 </p>
               </div>
 
@@ -135,9 +135,9 @@ export default function PrivacyPolicy() {
                   If you have questions about this Privacy Policy, please contact us:
                 </p>
                 <div className="space-y-1 font-sans text-body-md text-luxe-grey">
-                  <p><strong>Email:</strong> <a href="mailto:contact@counselclarity.com" className="text-luxe-gold hover:underline">contact@counselclarity.com</a></p>
-                  <p><strong>Phone:</strong> <a href="tel:+442079460123" className="text-luxe-gold hover:underline">+44 (0) 20 7946 0123</a></p>
-                  <p><strong>Address:</strong> Chancery Lane, London, WC2A 1LS, United Kingdom</p>
+                  <p><strong>Email:</strong> <a href="mailto:muhammad.zahidmuneer@gmail.com" className="text-luxe-gold hover:underline">muhammad.zahidmuneer@gmail.com</a></p>
+                  <p><strong>Phone:</strong> <a href="tel:+923005421753" className="text-luxe-gold hover:underline">0300-5421753</a></p>
+                  <p><strong>Address:</strong> Chamber No. 27, Haroon Ur Rasheed Block, F-8 Markaz Near PSO Pump, Islamabad 44800, Pakistan</p>
                 </div>
               </div>
             </div>

@@ -7,8 +7,8 @@ export default function Disclaimer() {
   return (
     <>
       <PageMeta
-        title="Legal Disclaimer"
-        description="Important legal disclaimer regarding information provided by Counsel & Clarity."
+        title="Disclaimer"
+        description="Important disclaimer regarding information provided by Rana M. Zahid Muneer Advocate."
       />
 
       {/* Luxury Hero */}
@@ -40,7 +40,7 @@ export default function Disclaimer() {
                   <div>
                     <h3 className="font-serif text-headline-sm text-luxe-black mb-2">Important</h3>
                     <p className="font-sans text-body-md text-luxe-grey">
-                      This disclaimer applies to all information contained on this website and the services provided by Counsel & Clarity. Please read carefully.
+                      This disclaimer applies to all information contained on this website and the services provided by Rana M. Zahid Muneer Advocate. Please read carefully.
                     </p>
                   </div>
                 </div>
@@ -48,20 +48,20 @@ export default function Disclaimer() {
 
               {/* No Attorney-Client Relationship */}
               <div>
-                <h2 className="font-serif text-headline-md text-luxe-black mb-stack-md">No Attorney-Client Relationship</h2>
+                <h2 className="font-serif text-headline-md text-luxe-black mb-stack-md">No Advisory-Client Relationship</h2>
                 <p className="font-sans text-body-lg text-luxe-grey leading-relaxed">
-                  By visiting this website or sending us an email through this website, you are not creating an attorney-client relationship between you and Counsel & Clarity or any of our attorneys. An attorney-client relationship is only created when Counsel & Clarity has agreed to represent you in writing and you have signed a representation agreement.
+                  Visiting this website or sending an enquiry does not establish a formal attorney-client relationship between you and Rana M. Zahid Muneer Advocate. A formal engagement is only established when a written engagement letter or agreement has been signed by both parties.
                 </p>
               </div>
 
               {/* No Legal Advice */}
               <div>
-                <h2 className="font-serif text-headline-md text-luxe-black mb-stack-md">Website Content Not Legal Advice</h2>
+                <h2 className="font-serif text-headline-md text-luxe-black mb-stack-md">Website Content Not Professional Advice</h2>
                 <p className="font-sans text-body-lg text-luxe-grey mb-4 leading-relaxed">
-                  The information provided on this website, including all text, graphics, and links, is for informational purposes only and should not be construed as legal advice. The information is not intended to create, and receipt of it does not constitute, an attorney-client relationship.
+                  The information provided on this website, including all text, graphics, and links, is for informational and educational purposes only. It does not constitute professional tax, financial, accounting, or legal advice. Receipt of this information does not create a professional engagement.
                 </p>
                 <p className="font-sans text-body-lg text-luxe-grey leading-relaxed">
-                  This website may provide information on legal matters but such information is not a substitute for professional legal advice. We strongly recommend that you consult with a qualified attorney regarding your specific legal situation.
+                  We strongly recommend that you consult with a qualified professional regarding your specific circumstances before taking any action based on information found on this website.
                 </p>
               </div>
 
@@ -69,7 +69,7 @@ export default function Disclaimer() {
               <div>
                 <h2 className="font-serif text-headline-md text-luxe-black mb-stack-md">Limitation of Liability</h2>
                 <p className="font-sans text-body-lg text-luxe-grey leading-relaxed">
-                  Under no circumstances shall Counsel & Clarity, its attorneys, staff, or representatives be liable for any damages, direct or indirect, resulting from information obtained from or transmitted through this website. This includes loss of profits, business interruption, or any other loss.
+                  Under no circumstances shall Rana M. Zahid Muneer Advocate, its principal, staff, or representatives be liable for any damages, direct or indirect, resulting from information obtained from or transmitted through this website. This includes loss of profits, business interruption, or any other loss.
                 </p>
               </div>
 
@@ -130,12 +130,12 @@ export default function Disclaimer() {
               <div className="luxury-card bg-luxe-light p-stack-md rounded-lg border border-luxe-gold/20">
                 <h2 className="font-serif text-headline-md text-luxe-black mb-stack-md">Legal Consultation</h2>
                 <p className="font-sans text-body-md text-luxe-grey mb-3">
-                  If you require professional legal advice, we encourage you to contact us to discuss your specific legal needs. To schedule a consultation with Counsel & Clarity:
+                  If you require professional legal advice, we encourage you to contact us to discuss your specific legal needs. To schedule a consultation with Rana M. Zahid Muneer Advocate:
                 </p>
                 <div className="space-y-2 font-sans text-body-md text-luxe-grey">
-                  <p><strong>Email:</strong> <a href="mailto:contact@counselclarity.com" className="text-luxe-gold hover:underline">contact@counselclarity.com</a></p>
-                  <p><strong>Phone:</strong> <a href="tel:+442079460123" className="text-luxe-gold hover:underline">+44 (0) 20 7946 0123</a></p>
-                  <p><strong>Address:</strong> Chancery Lane, London, WC2A 1LS, United Kingdom</p>
+                  <p><strong>Email:</strong> <a href="mailto:muhammad.zahidmuneer@gmail.com" className="text-luxe-gold hover:underline">muhammad.zahidmuneer@gmail.com</a></p>
+                  <p><strong>Phone:</strong> <a href="tel:+923005421753" className="text-luxe-gold hover:underline">0300-5421753</a></p>
+                  <p><strong>Address:</strong> Chamber No. 27, Haroon Ur Rasheed Block, F-8 Markaz Near PSO Pump, Islamabad 44800, Pakistan</p>
                 </div>
               </div>
 

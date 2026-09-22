@@ -17,8 +17,8 @@ html {
 body {
   min-height: max(884px, 100dvh);
   font-family: 'Inter', sans-serif;
-  background-color: #FEFAF6;
-  color: #1A1F26;
+  background-color: #FAFAF8;
+  color: #0F1B2D;
   overflow-x: hidden;
 }
 
@@ -28,39 +28,39 @@ body {
   vertical-align: middle;
 }
 
-/* Luxury Design Classes */
+/* Finance-Trust Design Cards */
 .glass-card {
-  background: rgba(254, 250, 246, 0.95);
+  background: rgba(250, 250, 248, 0.95);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(212, 165, 116, 0.2);
+  border: 1px solid rgba(201, 168, 76, 0.2);
 }
 
 .luxury-card {
-  background: #FEFAF6;
-  border: 1px solid #E8E3DC;
-  box-shadow: 0 2px 8px rgba(15, 20, 25, 0.08);
+  background: #FAFAF8;
+  border: 1px solid #E5E0D5;
+  box-shadow: 0 2px 8px rgba(15, 27, 45, 0.08);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .luxury-card:hover {
-  box-shadow: 0 16px 40px rgba(15, 20, 25, 0.16);
+  box-shadow: 0 16px 40px rgba(15, 27, 45, 0.16);
   transform: translateY(-2px);
 }
 
 .service-card-border {
-  border-top: 2px solid #D4A574;
+  border-top: 2px solid #C9A84C;
 }
 
 .gold-accent {
-  color: #D4A574;
+  color: #C9A84C;
 }
 
 .gold-border-accent {
-  border: 1px solid #D4A574;
+  border: 1px solid #C9A84C;
 }
 
 .ambient-shadow {
-  box-shadow: 0 8px 24px rgba(15, 20, 25, 0.12);
+  box-shadow: 0 8px 24px rgba(15, 27, 45, 0.12);
 }
 
 .hide-scrollbar {
@@ -79,10 +79,27 @@ body {
   transform: translateX(-50%);
   width: 1px;
   height: 100%;
-  background: #D4A574;
+  background: #C9A84C;
 }
 
-/* Typography Enhancements */
+/* Finance trust badge */
+.trust-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 6px;
+  border: 1px solid rgba(201, 168, 76, 0.4);
+  background: rgba(201, 168, 76, 0.06);
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #C9A84C;
+}
+
+/* Typography */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display', serif;
   font-weight: 600;
@@ -116,87 +133,101 @@ button, .btn {
 }
 
 .btn-primary {
-  background-color: #0F1419;
-  color: #FEFAF6;
-  border: 1px solid #0F1419;
+  background-color: #0F1B2D;
+  color: #FAFAF8;
+  border: 1px solid #0F1B2D;
 }
 
 .btn-primary:hover {
-  background-color: #1A1F26;
-  box-shadow: 0 8px 24px rgba(15, 20, 25, 0.2);
+  background-color: #1A2D4A;
+  box-shadow: 0 8px 24px rgba(15, 27, 45, 0.25);
 }
 
 .btn-secondary {
-  background-color: #D4A574;
-  color: #0F1419;
-  border: 1px solid #D4A574;
+  background-color: #C9A84C;
+  color: #0F1B2D;
+  border: 1px solid #C9A84C;
   font-weight: 600;
 }
 
 .btn-secondary:hover {
-  background-color: #B8860B;
-  border-color: #B8860B;
-  box-shadow: 0 8px 24px rgba(212, 165, 116, 0.3);
+  background-color: #B8960A;
+  border-color: #B8960A;
+  box-shadow: 0 8px 24px rgba(201, 168, 76, 0.35);
 }
 
 .btn-outline {
   background-color: transparent;
-  color: #0F1419;
-  border: 1.5px solid #D4A574;
+  color: #0F1B2D;
+  border: 1.5px solid #C9A84C;
 }
 
 .btn-outline:hover {
-  background-color: rgba(212, 165, 116, 0.05);
-  border-color: #B8860B;
+  background-color: rgba(201, 168, 76, 0.06);
+  border-color: #B8960A;
 }
 
-/* Link Styles */
-a {
-  color: #D4A574;
+/* Link Styles — only apply to links that are NOT buttons */
+a:not([class*="bg-"]):not([class*="btn"]):not([class*="border"]) {
+  color: #C9A84C;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
-a:hover {
-  color: #B8860B;
+a:not([class*="bg-"]):not([class*="btn"]):not([class*="border"]):hover {
+  color: #B8960A;
+}
+
+/* Gold background buttons always get dark text */
+.bg-luxe-gold,
+[class*="bg-luxe-gold"],
+a.bg-luxe-gold,
+button.bg-luxe-gold {
+  color: #0F1B2D !important;
+}
+
+/* Ensure hover on gold bg keeps text dark */
+.hover\:bg-luxe-gold:hover,
+.hover\:bg-luxe-gold-dark:hover {
+  color: #0F1B2D !important;
 }
 
 /* Input Styles */
 input, textarea, select {
   font-family: 'Inter', sans-serif;
-  border: 1px solid #E8E3DC;
-  background-color: #FEFAF6;
-  color: #1A1F26;
+  border: 1px solid #E5E0D5;
+  background-color: #FAFAF8;
+  color: #0F1B2D;
   transition: all 0.2s ease;
 }
 
 input:focus, textarea:focus, select:focus {
-  border-color: #D4A574;
-  box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.1);
+  border-color: #C9A84C;
+  box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.12);
+  outline: none;
 }
 
-/* Placeholder Text */
 ::placeholder {
   color: #9CA3AF;
 }
 
-/* Scrollbar Styling */
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #F3EFE8;
+  background: #F0EDE6;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #D4A574;
+  background: #C9A84C;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #B8860B;
+  background: #B8960A;
 }
 
 /* react-datepicker custom styling */
@@ -206,24 +237,24 @@ input:focus, textarea:focus, select:focus {
 
 .react-datepicker__day--selected,
 .react-datepicker__day--keyboard-selected {
-  background-color: #0F1419 !important;
-  color: #FEFAF6 !important;
+  background-color: #0F1B2D !important;
+  color: #FAFAF8 !important;
   border-radius: 4px !important;
 }
 
 .react-datepicker__header {
-  background-color: #F3EFE8 !important;
-  border-bottom: 1px solid #E8E3DC !important;
-  color: #0F1419 !important;
+  background-color: #F0EDE6 !important;
+  border-bottom: 1px solid #E5E0D5 !important;
+  color: #0F1B2D !important;
 }
 
 .react-datepicker__current-month {
-  color: #0F1419 !important;
+  color: #0F1B2D !important;
   font-weight: 600;
 }
 
 .react-datepicker__day:hover {
-  background-color: #E8DCC8 !important;
+  background-color: #E5DCC8 !important;
 }
 
 /* Animations */
@@ -253,7 +284,6 @@ input:focus, textarea:focus, select:focus {
   animation: fadeInUp 0.6s ease-out;
 }
 
-/* Cookie Consent Banner Animation */
 @keyframes slideUp {
   from {
     transform: translateY(100%);
@@ -271,17 +301,17 @@ input:focus, textarea:focus, select:focus {
 
 /* React Select Custom Styles */
 .react-select-container .react-select__control {
-  border-color: #D4A574 !important;
+  border-color: #C9A84C !important;
   min-height: 48px;
 }
 
 .react-select-container .react-select__control:hover {
-  border-color: #D4A574 !important;
+  border-color: #C9A84C !important;
 }
 
 .react-select-container .react-select__control--is-focused {
-  border-color: #D4A574 !important;
-  box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.1) !important;
+  border-color: #C9A84C !important;
+  box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.12) !important;
 }
 
 .react-select-container .react-select__option {
@@ -289,17 +319,17 @@ input:focus, textarea:focus, select:focus {
 }
 
 .react-select-container .react-select__option--is-focused {
-  background-color: #FEFAF6 !important;
-  color: #0F1419 !important;
+  background-color: #FAFAF8 !important;
+  color: #0F1B2D !important;
 }
 
 .react-select-container .react-select__option--is-selected {
-  background-color: #D4A574 !important;
-  color: #0F1419 !important;
+  background-color: #C9A84C !important;
+  color: #0F1B2D !important;
   font-weight: 600;
 }
 
 .react-select-container .react-select__menu {
-  border: 1px solid #D4A574;
-  box-shadow: 0 8px 24px rgba(15, 20, 25, 0.12);
+  border: 1px solid #C9A84C;
+  box-shadow: 0 8px 24px rgba(15, 27, 45, 0.12);
 }

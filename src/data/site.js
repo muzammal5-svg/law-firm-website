@@ -1,7 +1,6 @@
 /**
- * SITE CONFIGURATION (Legacy)
- * This file now pulls from firmConfig.js for centralized management
- * Kept for backward compatibility - prefer using useFirmConfig() hook
+ * SITE CONFIGURATION
+ * Pulls from firmConfig.js for centralised management.
  */
 
 import firmConfig from './firmConfig'
@@ -19,8 +18,9 @@ export const SITE = {
 export const NAV_LINKS = [
   { label: 'Home', path: '/' },
   { label: 'About', path: '/about' },
-  { label: 'Practice Areas', path: '/practice-areas' },
-  { label: 'Blog', path: '/blog' },
+  { label: 'Services', path: '/practice-areas' },
   { label: 'FAQ', path: '/faq' },
+  { label: 'Blog', path: '/blog' },
+  { label: 'Testimonials', path: '/testimonials' },
   { label: 'Contact', path: '/contact' },
 ]

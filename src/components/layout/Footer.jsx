@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom'
 import MaterialIcon from '../ui/MaterialIcon'
-import { SITE, NAV_LINKS } from '../../data/site'
+import { NAV_LINKS } from '../../data/site'
+import { useFirmConfig } from '../../context/FirmConfigContext'
 
 export default function Footer() {
+  const { config } = useFirmConfig()
   const currentYear = new Date().getFullYear()
 
   return (
@@ -17,30 +19,23 @@ export default function Footer() {
           {/* Brand Section - Premium */}
           <div className="md:col-span-1">
             <div className="mb-stack-md">
-              <h3 className="font-serif text-headline-md text-luxe-cream mb-2">{SITE.name}</h3>
+              <h3 className="font-serif text-headline-md text-luxe-cream mb-2">{config.firmName}</h3>
               <div className="h-1 w-12 bg-gradient-to-r from-luxe-gold to-luxe-gold-dark rounded-full"></div>
             </div>
             <p className="font-sans text-body-md text-luxe-cream/70 mb-6 leading-relaxed">
-              Trusted legal advocacy for life's most challenging moments.
+              {config.tagline}
             </p>
             {/* Social Icons - Premium */}
             <div className="flex gap-3">
               <a 
-                href="#" 
-                className="w-10 h-10 rounded-full bg-luxe-gold/10 hover:bg-luxe-gold hover:text-luxe-black text-luxe-gold flex items-center justify-center transition-all duration-300 hover:shadow-luxury-md transform hover:scale-110" 
-                title="Visit our website"
-              >
-                <MaterialIcon name="public" className="text-lg" />
-              </a>
-              <a 
-                href={`mailto:${SITE.email}`} 
+                href={`mailto:${config.contact.email}`} 
                 className="w-10 h-10 rounded-full bg-luxe-gold/10 hover:bg-luxe-gold hover:text-luxe-black text-luxe-gold flex items-center justify-center transition-all duration-300 hover:shadow-luxury-md transform hover:scale-110" 
                 title="Send email"
               >
                 <MaterialIcon name="mail" className="text-lg" />
               </a>
               <a 
-                href={`tel:${SITE.phoneRaw}`} 
+                href={`tel:${config.contact.phoneRaw}`} 
                 className="w-10 h-10 rounded-full bg-luxe-gold/10 hover:bg-luxe-gold hover:text-luxe-black text-luxe-gold flex items-center justify-center transition-all duration-300 hover:shadow-luxury-md transform hover:scale-110" 
                 title="Call us"
               >
@@ -56,22 +51,24 @@ export default function Footer() {
               Quick Links
             </h4>
             <ul className="space-y-3">
-              {NAV_LINKS.slice(0, 3).map((link) => (
+              {NAV_LINKS.map((link) => (
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className="hover:text-luxe-gold transition-all duration-300 font-sans text-body-md text-luxe-cream/80 hover:translate-x-1 inline-block"
+                    className="hover:text-luxe-gold transition-all duration-300 font-sans text-sm text-luxe-cream/70 hover:translate-x-1 inline-flex items-center gap-1.5 group"
                   >
+                    <MaterialIcon name="chevron_right" className="text-luxe-gold/40 text-sm group-hover:text-luxe-gold transition-colors" />
                     {link.label}
                   </Link>
                 </li>
               ))}
               <li>
                 <Link
-                  to="/contact"
-                  className="hover:text-luxe-gold transition-all duration-300 font-sans text-body-md text-luxe-cream/80 hover:translate-x-1 inline-block"
+                  to="/consultation"
+                  className="hover:text-luxe-gold transition-all duration-300 font-sans text-sm text-luxe-cream/70 hover:translate-x-1 inline-flex items-center gap-1.5 group"
                 >
-                  Contact
+                  <MaterialIcon name="chevron_right" className="text-luxe-gold/40 text-sm group-hover:text-luxe-gold transition-colors" />
+                  Book Consultation
                 </Link>
               </li>
             </ul>
@@ -119,16 +116,16 @@ export default function Footer() {
             </h4>
             <div className="space-y-4">
               <div>
-                <p className="font-sans text-caption text-luxe-gold font-semibold mb-1">Monday - Friday</p>
-                <p className="font-sans text-body-md text-luxe-cream/70">9:00 AM - 6:00 PM</p>
+                <p className="font-sans text-caption text-luxe-gold font-semibold mb-1">{config.contact.officeHours.weekday.days}</p>
+                <p className="font-sans text-body-md text-luxe-cream/70">{config.contact.officeHours.weekday.hours}</p>
               </div>
               <div>
-                <p className="font-sans text-caption text-luxe-gold font-semibold mb-1">Saturday</p>
-                <p className="font-sans text-body-md text-luxe-cream/70">By Appointment Only</p>
+                <p className="font-sans text-caption text-luxe-gold font-semibold mb-1">{config.contact.officeHours.weekend.days}</p>
+                <p className="font-sans text-body-md text-luxe-cream/70">{config.contact.officeHours.weekend.hours}</p>
               </div>
               <div className="pt-4 border-t border-luxe-gold/20">
                 <p className="font-sans text-caption text-luxe-gold font-semibold mb-1">Location</p>
-                <p className="font-sans text-body-sm text-luxe-cream/70 leading-relaxed">{SITE.address}</p>
+                <p className="font-sans text-body-sm text-luxe-cream/70 leading-relaxed">{config.contact.address.full}</p>
               </div>
             </div>
           </div>
@@ -145,7 +142,7 @@ export default function Footer() {
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               {/* Copyright Text */}
               <p className="font-sans text-caption text-luxe-cream/50 text-center md:text-left">
-                © {currentYear} <span className="text-luxe-gold">{SITE.name}</span>. All Rights Reserved.
+                © {currentYear} <span className="text-luxe-gold">{config.firmName}</span>. All Rights Reserved.
               </p>
 
               {/* Legal Links */}
@@ -172,11 +169,29 @@ export default function Footer() {
                 </Link>
               </div>
 
-              {/* Designed By - Premium Touch */}
+              {/* Branding */}
               <p className="font-sans text-caption text-luxe-cream/40 text-center md:text-right">
-                Premium Legal Services Platform
+                Criminal · Family · Legal Advisory
               </p>
             </div>
+
+            {/* Demo Disclaimer (if in demo mode) */}
+            {config.isDemo && (
+              <div className="mt-6 pt-6 border-t border-luxe-gold/10">
+                <div className="bg-luxe-gold/5 border border-luxe-gold/20 rounded-lg p-4 max-w-4xl mx-auto">
+                  <div className="flex items-start gap-3">
+                    <MaterialIcon name="info" className="text-luxe-gold text-lg flex-shrink-0 mt-0.5" />
+                    <div className="flex-1">
+                      <p className="font-sans text-sm text-luxe-cream/80 leading-relaxed">
+                        <span className="font-semibold text-luxe-gold">Template Demonstration:</span> This is a customizable law firm website template. 
+                        All content, firm names, and contact information can be easily configured for your practice. 
+                        Perfect for solo attorneys, solicitors, and small law firms seeking a professional web presence.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

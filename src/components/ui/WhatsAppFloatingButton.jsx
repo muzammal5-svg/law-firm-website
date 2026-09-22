@@ -1,59 +1,38 @@
 import { useState, useEffect } from 'react'
 
-// PLACEHOLDER WHATSAPP NUMBER - Replace before launch
-const WHATSAPP_NUMBER = '923323055502' // DO NOT use any UK/London number from old branding
-
 export default function WhatsAppFloatingButton() {
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
-    // Show button after scrolling 100px
-    const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setIsVisible(true)
-      } else {
-        setIsVisible(false)
-      }
-    }
-
+    const handleScroll = () => setIsVisible(window.scrollY > 100)
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   const handleClick = () => {
-    // Fire GTM conversion event
     if (window.dataLayer) {
-      window.dataLayer.push({
-        event: 'whatsapp_click',
-        button_location: 'floating_button',
-      })
+      window.dataLayer.push({ event: 'whatsapp_click', button_location: 'floating_button' })
     }
-
-    // Open WhatsApp
-    const message = encodeURIComponent('Hello, I need legal assistance with a matter in Pakistan.')
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank')
+    const number = import.meta.env.VITE_WHATSAPP_NUMBER || '923005421753'
+    const message = encodeURIComponent(
+      'Hello, I would like to book a legal consultation with Rana Muhammad Zahid Muneer Advocate.'
+    )
+    window.open(`https://wa.me/${number}?text=${message}`, '_blank')
   }
 
   return (
     <button
       onClick={handleClick}
-      className={`fixed bottom-6 right-6 z-50 w-16 h-16 bg-green-500 hover:bg-green-600 rounded-full shadow-luxury-xl flex items-center justify-center transition-all duration-300 transform hover:scale-110 ${
+      className={`fixed bottom-6 right-6 z-50 w-16 h-16 bg-[#25D366] hover:bg-[#1ebe5d] rounded-full shadow-[0_8px_32px_rgba(37,211,102,0.4)] flex items-center justify-center transition-all duration-300 transform hover:scale-110 ${
         isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0 pointer-events-none'
       }`}
-      aria-label="Contact us on WhatsApp"
-      title="Chat with us on WhatsApp"
+      aria-label="Chat with us on WhatsApp"
+      title="Chat with Rana Muhammad Zahid Muneer Advocate on WhatsApp"
     >
-      {/* WhatsApp Icon SVG */}
-      <svg
-        className="w-8 h-8 text-white"
-        viewBox="0 0 24 24"
-        fill="currentColor"
-      >
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.781 1.226l-.333.161-.345-.052c-1.268-.187-2.437-.157-3.39.318-.956.475-1.754 1.235-2.267 2.039C.669 6.575 0 7.753 0 9.012c0 1.261.6 2.43 1.614 3.326l-.254.396c-.529.751-.235 1.585.516 2.115.388.278.853.278 1.241 0l1.242-.888c.52.158 1.08.246 1.657.246 1.624 0 3.11-.672 4.158-1.852.52-.592.932-1.306 1.191-2.085.259-.78.328-1.611.204-2.41-.155-.942-.574-1.795-1.188-2.427-.614-.632-1.437-1.04-2.306-1.168zm14.527-2.979H6.414c-1.374 0-2.487 1.113-2.487 2.487v14.172c0 1.374 1.113 2.487 2.487 2.487h14.172c1.375 0 2.487-1.113 2.487-2.487V4.1c0-1.374-1.112-2.487-2.487-2.487z" />
+      <svg className="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M20.52 3.48C18.25 1.32 15.23 0 12 0c-6.63 0-12 5.28-12 11.72c0 2.16.56 4.32 1.6 6.12L0 24l6.48-1.6c1.92 1.04 3.84 1.6 5.52 1.6C18.36 24 24 18.72 24 12C24 8.76 22.8 5.64 20.52 3.48zM12 21.84c-1.92 0-3.76-.48-5.52-1.36L5.12 20.8l-2.4.56.56-2.4.32-1.36C3.28 15.68 2.8 14 2.8 12.08c0-5.28 4.32-9.6 9.6-9.6c2.56 0 5.04 1.04 6.8 2.8c1.76 1.76 2.8 4.24 2.8 6.8C21.6 17.52 17.28 21.84 12 21.84zm5.76-7.52c-.32-.16-1.92-.96-2.24-1.04-.32-.08-.56-.16-.8.16-.24.32-.92 1.04-1.12 1.28-.2.24-.4.24-.72.08-.32-.16-1.36-.48-2.56-1.6-.96-.84-1.6-1.88-1.76-2.2-.16-.32 0-.48.12-.64.12-.12.32-.32.48-.52.16-.2.2-.32.32-.56.12-.24.08-.4-.04-.56-.12-.16-.8-1.92-.96-2.56-.24-.56-.48-.48-.72-.48h-.64c-.24 0-.64.08-.96.4-.32.32-1.2 1.04-1.2 2.52 0 1.48 1.2 2.92 1.36 3.16.16.24 2.24 3.36 5.44 4.72.76.32 1.36.52 1.84.64.76.24 1.44.2 2 .12.64-.08 1.92-.76 2.16-1.52.24-.76.24-1.4.16-1.52-.08-.12-.32-.2-.64-.32z"/>
       </svg>
-
-      {/* Pulse Animation */}
-      <span className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-20"></span>
+      <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-20 pointer-events-none" />
     </button>
   )
 }

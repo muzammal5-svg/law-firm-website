@@ -5,15 +5,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Luxury Color Palette
-        'luxe-black': '#0F1419',
-        'luxe-dark': '#1A1F26',
-        'luxe-grey': '#2D3142',
-        'luxe-light': '#F5F3F0',
-        'luxe-cream': '#FEFAF6',
-        'luxe-gold': '#D4A574',
-        'luxe-gold-dark': '#B8860B',
-        'luxe-accent': '#8B7355',
+        // Finance-Trust Color Palette (deep navy + gold)
+        'luxe-black': '#0F1B2D',      // Deep navy (replaces pure black)
+        'luxe-dark': '#1A2D4A',       // Navy dark shade
+        'luxe-grey': '#2D3F55',       // Navy grey
+        'luxe-light': '#F5F3EE',      // Warm off-white
+        'luxe-cream': '#FAFAF8',      // Near-white background
+        'luxe-gold': '#C9A84C',       // Deep finance gold
+        'luxe-gold-dark': '#B8960A',  // Darker gold hover
+        'luxe-accent': '#7A6535',     // Muted gold accent
         'luxe-white': '#FFFFFF',
         
         // Legacy colors (maintained for compatibility)

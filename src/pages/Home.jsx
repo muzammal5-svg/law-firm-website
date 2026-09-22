@@ -6,58 +6,32 @@ import MaterialIcon from '../components/ui/MaterialIcon'
 import CTABanner from '../components/layout/CTABanner'
 import { practiceAreas } from '../data/practiceAreas'
 import { useFirmConfig } from '../context/FirmConfigContext'
-import { getTerm } from '../utils/terminology'
-import blogPosts from '../data/blogPosts.json'
+import { buildWhatsAppUrl } from '../utils/whatsapp'
 
 export default function Home() {
   const { config } = useFirmConfig()
-  const featuredPosts = blogPosts.slice(0, 3)
-  const [currentCarouselIndex, setCurrentCarouselIndex] = useState(0)
-  const [showVideoModal, setShowVideoModal] = useState(false)
-  const [selectedVideoUrl, setSelectedVideoUrl] = useState('')
-  const [isMobileView, setIsMobileView] = useState(typeof window !== 'undefined' ? window.innerWidth < 768 : false)
-
-  // Detect screen size changes
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobileView(window.innerWidth < 768)
-    }
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
-
-  // Use testimonials from config (generic DEMO data)
   const testimonials = config.testimonials
-
-  const itemsPerPage = 3
-  const mobileItemsPerPage = 1 // 1 card per page on mobile
-  const currentItemsPerPage = isMobileView ? mobileItemsPerPage : itemsPerPage
-  const totalPages = Math.ceil(testimonials.length / currentItemsPerPage)
-  const visibleTestimonials = testimonials.slice(
-    currentCarouselIndex * currentItemsPerPage,
-    (currentCarouselIndex + 1) * currentItemsPerPage
+  const [currentIdx, setCurrentIdx] = useState(0)
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== 'undefined' ? window.innerWidth < 768 : false
   )
 
-  // Auto-loop carousel every 5 seconds
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentCarouselIndex((prev) => (prev === totalPages - 1 ? 0 : prev + 1))
-    }, 5000)
-    return () => clearInterval(interval)
+    const onResize = () => setIsMobile(window.innerWidth < 768)
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
+  }, [])
+
+  const perPage = isMobile ? 1 : 3
+  const totalPages = Math.ceil(testimonials.length / perPage)
+  const visible = testimonials.slice(currentIdx * perPage, (currentIdx + 1) * perPage)
+
+  useEffect(() => {
+    const t = setInterval(() => setCurrentIdx(p => (p + 1) % totalPages), 5000)
+    return () => clearInterval(t)
   }, [totalPages])
 
-  const handlePrevCarousel = () => {
-    setCurrentCarouselIndex((prev) => (prev === 0 ? totalPages - 1 : prev - 1))
-  }
-
-  const handleNextCarousel = () => {
-    setCurrentCarouselIndex((prev) => (prev === totalPages - 1 ? 0 : prev + 1))
-  }
-
-  const handlePlayVideo = (videoUrl) => {
-    setSelectedVideoUrl(videoUrl)
-    setShowVideoModal(true)
-  }
+  const waUrl = buildWhatsAppUrl({ pathname: '/' })
 
   return (
     <>
@@ -67,88 +41,94 @@ export default function Home() {
         image={config.seo.defaultImage}
       />
 
-      {/* Luxury Hero Section */}
-      <section className="relative min-h-screen md:h-162 flex items-center overflow-hidden bg-luxe-cream">
+      {/* ── HERO ───────────────────────────────────────────────────── */}
+      <section className="relative min-h-screen md:min-h-0 md:h-[680px] flex items-center overflow-hidden bg-luxe-black">
+        {/* Background */}
         <div className="absolute inset-0 z-0">
-          <div
-            className="w-full h-full bg-center opacity-50"
-            style={{
-              backgroundImage: `url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsi1-w0yoxbsP7Z_1dqPHdh1eByw7GUmbBRViH1kEeNtSHYgWPQgbEvYU&s=10')`,
-            }}
+          <img
+            src="https://images.unsplash.com/photo-1589578228447-e1a4e481c6c8?w=1600&h=900&fit=crop"
+            alt="Legal advocacy background"
+            className="w-full h-full object-cover opacity-20"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-luxe-cream to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-luxe-black via-luxe-black/90 to-luxe-black/50" />
         </div>
 
         <div className="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full py-stack-lg md:py-0">
           <div className="max-w-3xl">
-            {/* Luxury Badge */}
             <AnimateOnScroll animation="fadeInUp">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-luxe-gold/40 bg-luxe-gold/5 mb-stack-md">
-                <div className="w-2 h-2 rounded-full bg-luxe-gold" />
-                <span className="font-sans text-xs tracking-widest uppercase text-luxe-gold font-semibold">
-                  {getTerm('attorney', config.region)} at Law
-                </span>
+              <div className="trust-badge mb-6">
+                <MaterialIcon name="verified" className="text-sm" />
+                Advocate High Court · Islamabad Bar Council · 5.0 ★ Rated
               </div>
             </AnimateOnScroll>
 
-            {/* Hero Headline - Serif for Luxury */}
             <AnimateOnScroll animation="fadeInUp" delay={0.1}>
-              <h1 className="font-serif text-display-lg-mobile md:text-display-lg text-luxe-black mb-stack-md leading-tight">
-                {config.tagline}
+              <h1 className="font-serif text-[42px] md:text-[60px] leading-[1.1] text-white mb-6">
+                Trusted Legal Advocacy —
+                <span className="text-luxe-gold"> Criminal · Family · Legal Advisory</span>
               </h1>
             </AnimateOnScroll>
 
-            {/* Subtitle */}
             <AnimateOnScroll animation="fadeInUp" delay={0.2}>
-              <p className="font-sans text-body-lg text-luxe-grey mb-stack-lg max-w-2xl leading-relaxed">
-                Decades of distinguished advocacy. Unwavering representation during your most critical moments. Bespoke legal solutions tailored to your unique circumstances.
+              <p className="font-sans text-lg text-white/75 mb-8 max-w-2xl leading-relaxed">
+                Over 15 years of expert legal representation before the Islamabad High Court and
+                subordinate courts. Chamber No. 27, F-8 Markaz, Islamabad.
               </p>
             </AnimateOnScroll>
 
-            {/* CTA Buttons - Luxury Style */}
             <AnimateOnScroll animation="fadeInUp" delay={0.3}>
-              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mt-8 pb-12 md:pb-0 w-full">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   to="/consultation"
-                  className="inline-flex items-center justify-center px-4 sm:px-8 py-3 sm:py-4 bg-luxe-black text-luxe-cream rounded-lg font-sans font-semibold text-xs sm:text-sm tracking-wide transition-all duration-300 hover:shadow-luxury-lg hover:translate-y-[-2px] active:translate-y-0 whitespace-nowrap"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-luxe-gold text-luxe-black rounded-lg font-sans font-bold text-sm tracking-wide hover:bg-luxe-gold-dark transition-all hover:shadow-[0_8px_24px_rgba(201,168,76,0.4)] hover:-translate-y-0.5"
                 >
-                  Schedule Consultation
-                  <MaterialIcon name="arrow_forward" className="ml-2 text-base sm:text-lg" />
+                  <MaterialIcon name="calendar_today" className="mr-2 text-lg" />
+                  Book Free Consultation
                 </Link>
-                <a
-                  href="https://wa.me/447700900123?text=Hello%2C%20I%20would%20like%20to%20inquire%20about%20your%20legal%20services."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-4 sm:px-8 py-3 sm:py-4 border-2 border-luxe-gold text-luxe-gold rounded-lg font-sans font-semibold text-xs sm:text-sm tracking-wide transition-all duration-300 hover:bg-luxe-gold/5 hover:shadow-luxury-md whitespace-nowrap"
+                <Link
+                  to="/practice-areas"
+                  className="inline-flex items-center justify-center px-8 py-4 border-2 border-white/30 text-white rounded-lg font-sans font-semibold text-sm tracking-wide hover:border-luxe-gold hover:text-luxe-gold transition-all"
                 >
-                  {/* WhatsApp Logo - Official - Gold/Current Color */}
-                  <svg className="mr-2 w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20.52 3.48C18.25 1.32 15.23 0 12 0c-6.63 0-12 5.28-12 11.72c0 2.16.56 4.32 1.6 6.12L0 24l6.48-1.6c1.92 1.04 3.84 1.6 5.52 1.6C18.36 24 24 18.72 24 12C24 8.76 22.8 5.64 20.52 3.48zM12 21.84c-1.92 0-3.76-.48-5.52-1.36L5.12 20.8l-2.4.56.56-2.4.32-1.36C3.28 15.68 2.8 14 2.8 12.08c0-5.28 4.32-9.6 9.6-9.6c2.56 0 5.04 1.04 6.8 2.8c1.76 1.76 2.8 4.24 2.8 6.8C21.6 17.52 17.28 21.84 12 21.84zm5.76-7.52c-.32-.16-1.92-.96-2.24-1.04-.32-.08-.56-.16-.8.16-.24.32-.92 1.04-1.12 1.28-.2.24-.4.24-.72.08-.32-.16-1.36-.48-2.56-1.6-.96-.84-1.6-1.88-1.76-2.2-.16-.32 0-.48.12-.64.12-.12.32-.32.48-.52.16-.2.2-.32.32-.56.12-.24.08-.4-.04-.56-.12-.16-.8-1.92-.96-2.56-.24-.56-.48-.48-.72-.48h-.64c-.24 0-.64.08-.96.4-.32.32-1.2 1.04-1.2 2.52 0 1.48 1.2 2.92 1.36 3.16.16.24 2.24 3.36 5.44 4.72.76.32 1.36.52 1.84.64.76.24 1.44.2 2 .12.64-.08 1.92-.76 2.16-1.52.24-.76.24-1.4.16-1.52-.08-.12-.32-.2-.64-.32z"/>
-                  </svg>
-                  Message on WhatsApp
-                </a>
+                  View Services
+                  <MaterialIcon name="arrow_forward" className="ml-2" />
+                </Link>
               </div>
+            </AnimateOnScroll>
+
+            <AnimateOnScroll animation="fadeInUp" delay={0.4}>
+              <a
+                href={waUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 mt-6 text-white/60 hover:text-[#25D366] text-sm font-sans transition-colors"
+              >
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M20.52 3.48C18.25 1.32 15.23 0 12 0c-6.63 0-12 5.28-12 11.72c0 2.16.56 4.32 1.6 6.12L0 24l6.48-1.6c1.92 1.04 3.84 1.6 5.52 1.6C18.36 24 24 18.72 24 12C24 8.76 22.8 5.64 20.52 3.48zM12 21.84c-1.92 0-3.76-.48-5.52-1.36L5.12 20.8l-2.4.56.56-2.4.32-1.36C3.28 15.68 2.8 14 2.8 12.08c0-5.28 4.32-9.6 9.6-9.6c2.56 0 5.04 1.04 6.8 2.8c1.76 1.76 2.8 4.24 2.8 6.8C21.6 17.52 17.28 21.84 12 21.84zm5.76-7.52c-.32-.16-1.92-.96-2.24-1.04-.32-.08-.56-.16-.8.16-.24.32-.92 1.04-1.12 1.28-.2.24-.4.24-.72.08-.32-.16-1.36-.48-2.56-1.6-.96-.84-1.6-1.88-1.76-2.2-.16-.32 0-.48.12-.64.12-.12.32-.32.48-.52.16-.2.2-.32.32-.56.12-.24.08-.4-.04-.56-.12-.16-.8-1.92-.96-2.56-.24-.56-.48-.48-.72-.48h-.64c-.24 0-.64.08-.96.4-.32.32-1.2 1.04-1.2 2.52 0 1.48 1.2 2.92 1.36 3.16.16.24 2.24 3.36 5.44 4.72.76.32 1.36.52 1.84.64.76.24 1.44.2 2 .12.64-.08 1.92-.76 2.16-1.52.24-.76.24-1.4.16-1.52-.08-.12-.32-.2-.64-.32z"/>
+                </svg>
+                Quick message on WhatsApp
+              </a>
             </AnimateOnScroll>
           </div>
         </div>
       </section>
 
-      {/* Luxury Trust Metrics - Elevated Design */}
-      <section className="bg-luxe-black text-luxe-cream py-stack-lg">
+      {/* ── STATS BAR ──────────────────────────────────────────────── */}
+      <section className="bg-luxe-black border-t border-white/10 py-12">
         <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { number: config.stats.yearsExperience, label: 'Years Trusted Advocacy', icon: 'school' },
-              { number: config.stats.casesResolved, label: 'Successful Resolutions', icon: 'verified' },
-              { number: config.stats.successRate, label: 'Client Satisfaction', icon: 'sentiment_satisfied' },
-            ].map((stat, idx) => (
-              <AnimateOnScroll key={idx} animation="fadeIn" delay={idx * 0.1}>
-                <div className="text-center border-b border-luxe-gold/20 pb-8">
-                  <div className="w-12 h-12 rounded-full bg-luxe-gold/10 flex items-center justify-center mx-auto mb-stack-md">
-                    <MaterialIcon name={stat.icon} className="text-luxe-gold text-2xl" />
+              { value: config.stats.yearsExperience, label: 'Years of Experience', icon: 'history_edu' },
+              { value: config.stats.clientsServed, label: 'Clients Served', icon: 'people' },
+              { value: config.stats.successRate, label: 'Client Satisfaction', icon: 'thumb_up' },
+              { value: config.stats.casesResolved, label: 'Engagements Completed', icon: 'task_alt' },
+            ].map((s, i) => (
+              <AnimateOnScroll key={i} animation="fadeIn" delay={i * 0.08}>
+                <div className="text-center">
+                  <div className="w-11 h-11 rounded-full bg-luxe-gold/10 flex items-center justify-center mx-auto mb-3">
+                    <MaterialIcon name={s.icon} className="text-luxe-gold text-xl" />
                   </div>
-                  <div className="font-serif text-5xl text-luxe-gold mb-2">{stat.number}</div>
-                  <p className="font-sans text-luxe-cream/80 text-sm tracking-wide">{stat.label}</p>
+                  <p className="font-serif text-4xl text-luxe-gold font-bold mb-1">{s.value}</p>
+                  <p className="font-sans text-sm text-white/60 tracking-wide">{s.label}</p>
                 </div>
               </AnimateOnScroll>
             ))}
@@ -156,352 +136,218 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Practice Areas - Elegant Minimal Design */}
+      {/* ── SERVICES GRID ──────────────────────────────────────────── */}
       <section className="py-stack-lg px-margin-mobile md:px-margin-desktop bg-luxe-cream">
         <div className="max-w-container-max mx-auto">
-          {/* Header - Minimal and Elegant */}
-          <AnimateOnScroll animation="fadeInUp" className="mb-32 max-w-xl">
-            <span className="font-sans text-xs tracking-widest uppercase text-luxe-gold font-semibold block mb-4">Areas of Expertise</span>
-            <h2 className="font-serif text-display-lg-mobile md:text-headline-md text-luxe-black mb-6 leading-tight">
-              Five Practice Areas
+          <AnimateOnScroll animation="fadeInUp" className="mb-14">
+            <span className="font-sans text-xs tracking-widest uppercase text-luxe-gold font-semibold block mb-3">
+              Legal Services
+            </span>
+            <h2 className="font-serif text-[36px] text-luxe-black leading-tight mb-3">
+              Comprehensive Legal Expertise
             </h2>
-            <div className="h-1 w-16 bg-gradient-to-r from-luxe-gold to-luxe-gold-dark rounded-full"></div>
+            <div className="h-0.5 w-16 bg-luxe-gold rounded-full mb-14" />
           </AnimateOnScroll>
 
-          {/* Practice Areas - Elegant 5 Column Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16 mt-16">
-            {practiceAreas.map((area, idx) => (
-              <AnimateOnScroll key={area.id} animation="fadeInUp" delay={idx * 0.08}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {practiceAreas.map((area, i) => (
+              <AnimateOnScroll key={area.id} animation="fadeInUp" delay={i * 0.07}>
                 <Link
                   to={`/practice-areas/${area.slug}`}
-                  className="group text-center hover:text-luxe-gold transition-colors duration-300"
+                  className="group flex flex-col bg-white rounded-xl border border-luxe-gold/20 hover:border-luxe-gold/60 hover:shadow-[0_16px_40px_rgba(15,27,45,0.12)] transition-all duration-300 overflow-hidden"
                 >
-                  {/* Icon Circle */}
-                  <div className="w-20 h-20 rounded-full bg-luxe-gold/5 border border-luxe-gold/30 flex items-center justify-center mx-auto mb-6 group-hover:bg-luxe-gold/10 group-hover:border-luxe-gold/50 transition-all duration-300 transform group-hover:scale-110">
-                    <MaterialIcon name={area.icon} className="text-luxe-gold text-4xl" />
+                  <div className="h-44 overflow-hidden relative">
+                    <img
+                      src={area.image}
+                      alt={area.imageAlt}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-luxe-black/60 to-transparent" />
+                    <div className="absolute bottom-4 left-4">
+                      <div className="w-10 h-10 rounded-lg bg-luxe-gold/90 flex items-center justify-center">
+                        <MaterialIcon name={area.icon} className="text-luxe-black text-xl" />
+                      </div>
+                    </div>
                   </div>
-
-                  {/* Title */}
-                  <h3 className="font-serif text-headline-sm text-luxe-black mb-3 group-hover:text-luxe-gold transition-colors duration-300">
-                    {area.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="font-sans text-body-md text-luxe-grey leading-relaxed mb-4">
-                    {area.description}
-                  </p>
-
-                  {/* Learn More Link */}
-                  <div className="inline-flex items-center gap-1 text-luxe-gold font-semibold text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-x-1">
-                    <span>Learn More</span>
-                    <MaterialIcon name="arrow_forward" className="text-base" />
+                  <div className="p-6 flex flex-col flex-1">
+                    <h3 className="font-serif text-xl text-luxe-black mb-2 group-hover:text-luxe-gold transition-colors">
+                      {area.title}
+                    </h3>
+                    <p className="font-sans text-sm text-luxe-grey leading-relaxed flex-1 mb-4">
+                      {area.description}
+                    </p>
+                    <div className="flex items-center gap-1 text-luxe-gold font-sans font-semibold text-sm group-hover:gap-2 transition-all">
+                      <span>Learn More</span>
+                      <MaterialIcon name="arrow_forward" className="text-base" />
+                    </div>
                   </div>
                 </Link>
               </AnimateOnScroll>
             ))}
           </div>
 
-          {/* Divider */}
-          <div className="border-t border-luxe-gold/10 pt-16 flex justify-center">
-            {/* CTA Button */}
-            <AnimateOnScroll animation="fadeInUp">
-              <Link
-                to="/practice-areas"
-                className="inline-flex items-center gap-2 px-8 py-4 border-2 border-luxe-gold text-luxe-gold font-sans font-semibold text-sm tracking-widest uppercase rounded-lg hover:bg-luxe-gold hover:text-luxe-black transition-all duration-300 group"
-              >
-                <MaterialIcon name="explore" className="text-lg" />
-                <span>Explore All Areas</span>
-              </Link>
+          <AnimateOnScroll animation="fadeInUp" className="text-center mt-12">
+            <Link
+              to="/practice-areas"
+              className="inline-flex items-center gap-2 px-8 py-4 border-2 border-luxe-gold text-luxe-gold font-sans font-semibold text-sm tracking-widest uppercase rounded-lg hover:bg-luxe-gold hover:text-luxe-black transition-all duration-300"
+            >
+              <MaterialIcon name="explore" className="text-lg" />
+              View All Services
+            </Link>
+          </AnimateOnScroll>
+        </div>
+      </section>
+
+      {/* ── WHY CHOOSE US ──────────────────────────────────────────── */}
+      <section className="py-stack-lg px-margin-mobile md:px-margin-desktop bg-luxe-black text-white">
+        <div className="max-w-container-max mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <AnimateOnScroll animation="fadeInLeft">
+              <span className="font-sans text-xs tracking-widest uppercase text-luxe-gold font-semibold block mb-4">
+                Why Rana M. Zahid Muneer
+              </span>
+              <h2 className="font-serif text-[36px] leading-tight mb-6">
+                High Court Expertise<br />You Can Rely On
+              </h2>
+              <p className="font-sans text-white/70 text-base leading-relaxed mb-8">
+                As an enrolled Advocate High Court with over 15 years of experience,
+                Rana Muhammad Zahid Muneer provides expert legal representation across criminal,
+                family, and civil matters — with a 5.0 Google rating earned entirely through results.
+              </p>
+              <div className="space-y-4">
+                {[
+                  { icon: 'gavel', text: 'Advocate High Court — right of audience before Islamabad High Court' },
+                  { icon: 'verified', text: '5.0 ★ Google rating with 34 verified client reviews' },
+                  { icon: 'family_restroom', text: 'Criminal, family, property, civil and constitutional matters' },
+                  { icon: 'handshake', text: 'Transparent fees agreed upfront — no hidden charges' },
+                ].map((item, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-full bg-luxe-gold/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <MaterialIcon name={item.icon} className="text-luxe-gold text-sm" />
+                    </div>
+                    <p className="font-sans text-white/80 text-sm leading-relaxed">{item.text}</p>
+                  </div>
+                ))}
+              </div>
+            </AnimateOnScroll>
+
+            <AnimateOnScroll animation="fadeInRight" delay={0.15}>
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { icon: 'gavel', label: 'Criminal Law', sub: 'Defence · Bail · Trial' },
+                  { icon: 'family_restroom', label: 'Family Law', sub: 'Divorce · Custody · Maintenance' },
+                  { icon: 'balance', label: 'Legal Advisory', sub: 'Contracts · Civil matters' },
+                  { icon: 'home_work', label: 'Property Law', sub: 'Title · Disputes · Possession' },
+                ].map((card, i) => (
+                  <div
+                    key={i}
+                    className="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 hover:border-luxe-gold/40 transition-all duration-300"
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-luxe-gold/10 flex items-center justify-center mb-3">
+                      <MaterialIcon name={card.icon} className="text-luxe-gold text-xl" />
+                    </div>
+                    <p className="font-serif text-base text-white mb-1">{card.label}</p>
+                    <p className="font-sans text-xs text-white/50">{card.sub}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-6 p-5 rounded-xl bg-luxe-gold/10 border border-luxe-gold/30">
+                <div className="flex items-center gap-3 mb-2">
+                  <MaterialIcon name="location_on" className="text-luxe-gold text-xl" />
+                  <p className="font-sans font-semibold text-white text-sm">Chamber No. 27, F-8 Markaz, Islamabad</p>
+                </div>
+                <p className="font-sans text-white/60 text-xs">
+                  Haroon Ur Rasheed Block, near PSO Pump. Walk-in and appointment consultations available.
+                </p>
+              </div>
             </AnimateOnScroll>
           </div>
         </div>
       </section>
 
-      {/* Enhanced Testimonials & Reviews - Luxury Professional Carousel */}
+      {/* ── TESTIMONIALS ───────────────────────────────────────────── */}
       <section className="py-stack-lg px-margin-mobile md:px-margin-desktop bg-luxe-cream">
         <div className="max-w-container-max mx-auto">
-          {/* Premium Header */}
-          <AnimateOnScroll animation="fadeInUp" className="mb-stack-lg max-w-2xl mx-auto">
-            <div className="text-center">
-              <span className="font-sans text-xs tracking-widest uppercase text-luxe-gold font-semibold block mb-4">
-                <MaterialIcon name="verified" className="inline text-lg mr-2 align-middle" />
-                Client Testimonials
-              </span>
-              <h2 className="font-serif text-display-lg-mobile md:text-display-sm text-luxe-black mb-4 leading-tight">
-                Trusted by Over 500 Satisfied Clients
-              </h2>
-              <div className="h-1 w-20 bg-gradient-to-r from-luxe-gold to-luxe-gold-dark rounded-full mx-auto mb-6"></div>
-              <p className="font-sans text-body-lg text-luxe-grey leading-relaxed mb-16">
-                Exceptional legal guidance from clients who've experienced our commitment to excellence
-              </p>
-            </div>
+          <AnimateOnScroll animation="fadeInUp" className="text-center mb-12">
+            <span className="font-sans text-xs tracking-widest uppercase text-luxe-gold font-semibold block mb-3">
+              Client Testimonials
+            </span>
+            <h2 className="font-serif text-[36px] text-luxe-black mb-3">What Clients Say</h2>
+            <div className="h-0.5 w-16 bg-luxe-gold rounded-full mx-auto" />
           </AnimateOnScroll>
 
-          {/* Carousel Container with Premium Navigation */}
           <div className="relative">
-            {/* Left Arrow - Premium Style - Mobile Safe */}
-            <button
-              onClick={handlePrevCarousel}
-              className="absolute -left-3 md:-left-8 top-1/2 transform -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-luxe-black border-2 border-luxe-gold hover:bg-luxe-gold hover:text-luxe-black text-luxe-gold flex items-center justify-center transition-all duration-300 shadow-luxury-lg group"
-              aria-label="Previous reviews"
-            >
-              <MaterialIcon name="arrow_back" className="text-lg md:text-xl group-hover:translate-x-1 transition-transform" />
-            </button>
-
-            {/* Right Arrow - Premium Style - Mobile Safe */}
-            <button
-              onClick={handleNextCarousel}
-              className="absolute -right-3 md:-right-8 top-1/2 transform -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-luxe-black border-2 border-luxe-gold hover:bg-luxe-gold hover:text-luxe-black text-luxe-gold flex items-center justify-center transition-all duration-300 shadow-luxury-lg group"
-              aria-label="Next reviews"
-            >
-              <MaterialIcon name="arrow_forward" className="text-lg md:text-xl group-hover:-translate-x-1 transition-transform" />
-            </button>
-
-            {/* Reviews Grid - 3 Columns, Luxury Cards - Mobile Safe */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 px-2 md:px-16">
-              {visibleTestimonials.map((review, idx) => (
-                <AnimateOnScroll key={idx} animation="fadeInUp" delay={idx * 0.1}>
-                  <div className="group flex flex-col bg-white rounded-2xl overflow-hidden border border-luxe-gold/30 hover:border-luxe-gold/70 transition-all duration-300 hover:shadow-luxury-xl h-full transform hover:-translate-y-2">
-                    {/* Video Thumbnail - Premium */}
-                    <div className="relative h-64 bg-gradient-to-br from-luxe-black to-luxe-dark flex items-center justify-center overflow-hidden flex-shrink-0">
-                      <img
-                        src={review.image}
-                        alt={review.name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                      {/* Premium Play Button Overlay */}
-                      {review.hasVideo && (
-                        <div
-                          className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/50 transition-all duration-300 backdrop-blur-sm group-hover:backdrop-blur-md"
-                          onClick={() => handlePlayVideo(review.videoUrl)}
-                        >
-                          <div className="relative">
-                            <div className="absolute inset-0 bg-luxe-gold rounded-full animate-pulse opacity-30 scale-150"></div>
-                            <div className="relative w-20 h-20 rounded-full bg-luxe-gold flex items-center justify-center transform group-hover:scale-125 transition-transform duration-300 shadow-luxury-xl">
-                              <MaterialIcon name="play_arrow" className="text-luxe-black text-4xl ml-1" />
-                            </div>
-                          </div>
-                        </div>
-                      )}
-                      {/* Video Label Badge */}
-                      <div className="absolute top-4 right-4 px-3 py-2 bg-luxe-gold/90 backdrop-blur text-luxe-black text-xs font-bold rounded-full flex items-center gap-1">
-                        <MaterialIcon name="videocam" className="text-sm" />
-                        Video Review
-                      </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-2 md:px-8">
+              {visible.map((t, i) => (
+                <AnimateOnScroll key={t.id} animation="fadeInUp" delay={i * 0.1}>
+                  <div className="bg-white rounded-xl border border-luxe-gold/20 hover:border-luxe-gold/50 hover:shadow-[0_16px_40px_rgba(15,27,45,0.1)] transition-all duration-300 p-8 flex flex-col h-full">
+                    <div className="flex gap-1 mb-5">
+                      {[...Array(t.rating)].map((_, j) => (
+                        <MaterialIcon key={j} name="star" className="text-luxe-gold text-lg" />
+                      ))}
                     </div>
-
-                    {/* Text Review Section - Premium */}
-                    <div className="flex flex-col flex-1 p-8 bg-gradient-to-b from-white via-white to-luxe-light/50">
-                      {/* Stars - Premium Rating Display */}
-                      <div className="flex gap-1 mb-6">
-                        {[...Array(review.rating)].map((_, i) => (
-                          <div key={i} className="relative">
-                            <MaterialIcon name="star" filled className="text-luxe-gold text-lg drop-shadow-lg" />
-                          </div>
-                        ))}
-                        <span className="ml-auto text-xs font-semibold text-luxe-gold tracking-wide">VERIFIED</span>
-                      </div>
-
-                      {/* Review Text - Premium Typography */}
-                      <p className="font-sans text-body-md text-luxe-grey leading-relaxed flex-grow mb-6 italic">
-                        "{review.text}"
-                      </p>
-
-                      {/* Divider */}
-                      <div className="h-px bg-gradient-to-r from-transparent via-luxe-gold/30 to-transparent mb-6"></div>
-
-                      {/* Client Info - Premium */}
-                      <div className="mb-6">
-                        <p className="font-serif text-headline-sm text-luxe-black leading-tight">{review.name}</p>
-                        <p className="font-sans text-caption text-luxe-gold font-semibold tracking-wide mt-2">{review.title}</p>
-                      </div>
-
-                      {/* Read More Link - Premium */}
-                      <div className="inline-flex items-center gap-2 text-luxe-gold font-semibold text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 cursor-pointer">
-                        <span className="border-b border-luxe-gold pb-1">Watch Full Review</span>
-                        <MaterialIcon name="play_circle_filled" className="text-lg" />
-                      </div>
-                    </div>
-                  </div>
-                </AnimateOnScroll>
-              ))}
-            </div>
-          </div>
-
-          {/* Premium Carousel Controls */}
-          <div className="mt-16 flex flex-col items-center gap-8">
-            {/* Carousel Dots - Premium Design */}
-            <div className="flex justify-center gap-3">
-              {[...Array(totalPages)].map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setCurrentCarouselIndex(idx)}
-                  className={`transition-all duration-300 cursor-pointer ${
-                    idx === currentCarouselIndex
-                      ? 'bg-luxe-gold w-10 h-3 rounded-full shadow-luxury-md'
-                      : 'bg-luxe-gold/20 hover:bg-luxe-gold/40 w-3 h-3 rounded-full'
-                  }`}
-                  aria-label={`Go to carousel page ${idx + 1}`}
-                />
-              ))}
-            </div>
-
-            {/* Page Counter - Professional Touch */}
-            <p className="font-sans text-sm text-luxe-grey tracking-wide">
-              <span className="font-semibold text-luxe-gold">{currentCarouselIndex + 1}</span>
-              {' '}/{'  '}
-              <span className="font-semibold text-luxe-gold">{totalPages}</span>
-            </p>
-          </div>
-
-          {/* Trust Statistics - Premium Section */}
-          {/* <div className="mt-stack-lg pt-16 border-t-2 border-luxe-gold/20">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-              {[
-                { number: '500+', label: 'Happy Clients', icon: 'people' },
-                { number: '98%', label: 'Satisfaction Rate', icon: 'thumb_up' },
-                { number: '15+', label: 'Years Experience', icon: 'history' },
-                { number: '1000+', label: 'Total Reviews', icon: 'rate_review' },
-              ].map((stat, idx) => (
-                <AnimateOnScroll key={idx} animation="fadeInUp" delay={idx * 0.1}>
-                  <div className="text-center group">
-                    <div className="w-14 h-14 rounded-full bg-luxe-gold/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-luxe-gold/20 transition-all">
-                      <MaterialIcon name={stat.icon} className="text-luxe-gold text-2xl" />
-                    </div>
-                    <p className="font-serif text-headline-sm text-luxe-gold mb-2 group-hover:text-luxe-gold-dark transition-colors">{stat.number}</p>
-                    <p className="font-sans text-caption text-luxe-grey font-medium tracking-wide">{stat.label}</p>
-                  </div>
-                </AnimateOnScroll>
-              ))}
-            </div>
-          </div> */}
-        </div>
-
-        {/* Video Modal */}
-        {showVideoModal && (
-          <div
-            className="fixed inset-0 bg-luxe-black/80 backdrop-blur z-50 flex items-center justify-center p-4"
-            onClick={() => setShowVideoModal(false)}
-          >
-            <div
-              className="relative w-full max-w-4xl bg-luxe-black rounded-xl overflow-hidden"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Close Button */}
-              <button
-                onClick={() => setShowVideoModal(false)}
-                className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-luxe-gold hover:bg-luxe-gold-dark text-luxe-black flex items-center justify-center transition-all shadow-luxury-lg"
-                aria-label="Close video"
-              >
-                <MaterialIcon name="close" className="text-lg" />
-              </button>
-
-              {/* Video Container */}
-              <div className="aspect-video">
-                <iframe
-                  width="100%"
-                  height="100%"
-                  src={`${selectedVideoUrl}?autoplay=1`}
-                  title="Client testimonial video"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
-            </div>
-          </div>
-        )}
-      </section>
-
-      {/* Latest Insights - Enhanced */}
-      <section className="py-stack-lg px-margin-mobile md:px-margin-desktop bg-luxe-cream">
-        <div className="max-w-container-max mx-auto">
-          <AnimateOnScroll animation="fadeInUp" className="mb-stack-lg">
-            <div className="flex flex-col md:flex-row justify-between md:items-end gap-6 pb-8 border-b border-luxe-gold/20">
-              <div>
-                <span className="font-sans text-xs tracking-widest uppercase text-luxe-gold font-semibold block mb-3">Latest Articles</span>
-                <h2 className="font-serif text-headline-md text-luxe-black">Legal Insights & Analysis</h2>
-                <p className="font-sans text-body-md text-luxe-grey mt-2">Expert perspectives on navigating complex legal matters</p>
-              </div>
-              <Link
-                to="/blog"
-                className="hidden md:flex items-center gap-2 text-luxe-gold font-sans font-semibold text-sm hover:gap-3 transition-all tracking-wide whitespace-nowrap group"
-              >
-                <span className="group-hover:text-luxe-gold">Explore All</span>
-                <MaterialIcon name="arrow_forward" className="text-lg" />
-              </Link>
-            </div>
-          </AnimateOnScroll>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-stack-lg">
-            {featuredPosts.map((post, idx) => (
-              <AnimateOnScroll key={post.id} animation="fadeInUp" delay={idx * 0.1}>
-                <Link
-                  to={`/blog/${post.slug}`}
-                  className="luxury-card group overflow-hidden rounded-xl border border-luxe-gold/20 hover:border-luxe-gold/50 hover:shadow-luxury-lg transition-all flex flex-col h-full"
-                >
-                  {/* Image Container */}
-                  <div className="h-56 relative overflow-hidden bg-luxe-light">
-                    <img
-                      src={post.image}
-                      alt={post.imageAlt}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    {/* Category Badge */}
-                    <span className="absolute top-4 left-4 px-4 py-2 bg-luxe-black/85 backdrop-blur text-luxe-cream text-xs font-bold tracking-widest uppercase rounded-full">
-                      {post.category}
-                    </span>
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-luxe-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-7 flex flex-col flex-grow">
-                    {/* Date & Read Time */}
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="flex items-center gap-2">
-                        <MaterialIcon name="calendar_today" className="text-luxe-gold text-sm" />
-                        <time className="font-sans text-xs text-luxe-grey font-medium tracking-wide">{post.date}</time>
-                      </div>
-                      <span className="font-sans text-xs text-luxe-grey/70">{post.readTime}</span>
-                    </div>
-
-                    {/* Title */}
-                    <h3 className="font-serif text-headline-sm text-luxe-black mb-3 line-clamp-2 group-hover:text-luxe-gold transition-colors duration-300 leading-tight">
-                      {post.title}
-                    </h3>
-
-                    {/* Excerpt */}
-                    <p className="font-sans text-luxe-grey text-body-md mb-6 flex-grow line-clamp-2">
-                      {post.excerpt}
+                    <p className="font-sans text-luxe-grey text-sm leading-relaxed italic flex-1 mb-6">
+                      "{t.text}"
                     </p>
-
-                    {/* CTA */}
-                    <div className="flex items-center gap-2 pt-4 border-t border-luxe-gold/10">
-                      <span className="text-luxe-gold font-semibold text-sm group-hover:gap-2 transition-all flex items-center gap-1 tracking-wide group-hover:translate-x-1">
-                        Read Article
-                      </span>
-                      <MaterialIcon name="arrow_forward" className="text-luxe-gold text-lg opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="flex items-center gap-4 pt-5 border-t border-luxe-gold/15">
+                      <img
+                        src={t.image}
+                        alt={t.name}
+                        className="w-12 h-12 rounded-full object-cover border-2 border-luxe-gold/30"
+                      />
+                      <div>
+                        <p className="font-serif text-luxe-black text-base leading-tight">{t.name}</p>
+                        <p className="font-sans text-xs text-luxe-gold mt-0.5">{t.title}</p>
+                      </div>
                     </div>
                   </div>
-                </Link>
-              </AnimateOnScroll>
-            ))}
+                </AnimateOnScroll>
+              ))}
+            </div>
+
+            {/* Dots */}
+            <div className="flex justify-center gap-2 mt-8">
+              {[...Array(totalPages)].map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrentIdx(i)}
+                  className={`transition-all duration-300 rounded-full ${
+                    i === currentIdx ? 'bg-luxe-gold w-8 h-2.5' : 'bg-luxe-gold/25 w-2.5 h-2.5'
+                  }`}
+                  aria-label={`Page ${i + 1}`}
+                />
+              ))}
+            </div>
           </div>
 
-          <div className="md:hidden text-center mt-stack-lg">
+          <AnimateOnScroll animation="fadeInUp" className="text-center mt-10">
             <Link
-              to="/blog"
-              className="inline-flex items-center gap-2 px-8 py-4 border-2 border-luxe-gold text-luxe-gold font-sans font-semibold text-sm rounded-lg hover:bg-luxe-gold/5 transition-all tracking-wide"
+              to="/testimonials"
+              className="inline-flex items-center gap-2 text-luxe-gold font-sans font-semibold text-sm hover:gap-3 transition-all tracking-wide"
             >
-              <MaterialIcon name="article" className="text-lg" />
-              View All Articles
+              Read All Testimonials
+              <MaterialIcon name="arrow_forward" className="text-base" />
             </Link>
+          </AnimateOnScroll>
+        </div>
+      </section>
+
+      {/* ── CREDENTIALS STRIP ─────────────────────────────────────── */}
+      <section className="bg-luxe-black py-10 px-margin-mobile md:px-margin-desktop border-t border-white/10">
+        <div className="max-w-container-max mx-auto">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <p className="font-sans text-white/50 text-xs tracking-widest uppercase">Professional Credentials &amp; Memberships</p>
+            <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10">
+              {['Advocate High Court', 'Islamabad Bar Council', 'Criminal Law', 'Family Law', '5.0 ★ Google Rated'].map((c) => (
+                <span key={c} className="font-sans text-sm text-white/70 font-medium tracking-wide border-l border-luxe-gold/30 pl-5 first:border-0 first:pl-0">
+                  {c}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Luxury Final CTA */}
       <CTABanner />
     </>
   )

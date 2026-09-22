@@ -25,8 +25,7 @@ export default function MobileConsultBar() {
       <div className="flex gap-2 max-w-container-max mx-auto">
         <Link
           to="/consultation"
-          className="flex-1 bg-luxe-gold px-4 py-2 rounded-lg font-sans font-bold text-sm text-center hover:shadow-luxury-md transition-all"
-          style={{ color: '#000000' }}
+          className="flex-1 bg-luxe-gold text-luxe-black px-4 py-2 rounded-lg font-sans font-bold text-sm text-center hover:bg-luxe-gold-dark hover:shadow-md transition-all"
         >
           <MaterialIcon name="calendar_month" className="inline mr-1" />
           Book Now

@@ -82,47 +82,21 @@ export default function BlogPost() {
 
       {/* Content */}
       <section className="py-stack-lg px-margin-mobile md:px-margin-desktop bg-luxe-cream">
-        <div className="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-gutter">
-          {/* Main Content */}
-          <AnimateOnScroll className="lg:col-span-3" animation="fadeInLeft">
+        <div className="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+          {/* Main Content — spans 2 cols */}
+          <AnimateOnScroll className="lg:col-span-2" animation="fadeInLeft">
             <div
               className="font-sans text-body-lg text-luxe-grey leading-relaxed space-y-stack-md prose prose-lg max-w-none"
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
 
-            {/* Content Enhancements - Add styling to HTML content */}
+            {/* Content Enhancements */}
             <style>{`
-              .prose p {
-                font-size: 1rem;
-                line-height: 1.8;
-                margin-bottom: 1.5rem;
-                color: #2D3142;
-              }
-              .prose h3 {
-                font-family: 'Playfair Display', serif;
-                font-size: 1.5rem;
-                font-weight: 600;
-                color: #0F1419;
-                margin-top: 2rem;
-                margin-bottom: 1rem;
-                line-height: 1.4;
-              }
-              .prose h2 {
-                font-family: 'Playfair Display', serif;
-                font-size: 2rem;
-                font-weight: 700;
-                color: #0F1419;
-                margin-top: 2.5rem;
-                margin-bottom: 1.5rem;
-              }
-              .prose strong {
-                color: #0F1419;
-                font-weight: 600;
-              }
-              .prose em {
-                font-style: italic;
-                color: #2D3142;
-              }
+              .prose p { font-size:1rem; line-height:1.8; margin-bottom:1.5rem; color:#2D3F55; }
+              .prose h3 { font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:600; color:#0F1B2D; margin-top:2rem; margin-bottom:1rem; line-height:1.4; }
+              .prose h2 { font-family:'Playfair Display',serif; font-size:2rem; font-weight:700; color:#0F1B2D; margin-top:2.5rem; margin-bottom:1.5rem; }
+              .prose strong { color:#0F1B2D; font-weight:600; }
+              .prose em { font-style:italic; color:#2D3F55; }
             `}</style>
 
             {/* Author Bio */}
@@ -130,14 +104,17 @@ export default function BlogPost() {
               <h3 className="font-serif text-headline-sm text-luxe-black mb-4">About the Author</h3>
               <div className="flex gap-6 items-start">
                 <img
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAC5dvvrYM5-uPdEnlqAZbEu5Qm_LB06qp1TlTrFKbkWZM8Rf4dNzuGZOiqbMTgfmBGDNFW4LTAm5UJDQPZrXPwzpAkUMtGTu8aCOWBcCzgxXDvtqvyE5djx9z76WxIxTXom-zn8ygmoaCXYLOrxlpbEFWMonc9r8nxAa3Vv4-fvHoU-aj9kUvUkRpQv7IBCO5A3suWL6Yr-anYxlyjdqCAJ737eP2vCgR8C7IPkFJjGAOra_hSkeiUd-8rA9xuaqIuwwXdXZSrrt0"
-                  alt="Julian Thorne"
-                  className="w-20 h-20 rounded-lg object-cover border-2 border-luxe-gold/30 flex-shrink-0"
+                  src="/Rana Muhammad Zahid Muneer.jpg"
+                  alt="Rana Muhammad Zahid Muneer"
+                  className="w-20 h-20 rounded-lg object-cover object-top border-2 border-luxe-gold/30 flex-shrink-0"
                 />
                 <div className="flex-1">
-                  <h4 className="font-serif text-headline-sm text-luxe-black mb-1">Advocate Julian Thorne</h4>
+                  <h4 className="font-serif text-headline-sm text-luxe-black mb-1">Rana Muhammad Zahid Muneer</h4>
+                  <p className="font-sans text-xs text-luxe-gold font-semibold tracking-wide mb-2">
+                    Advocate High Court · Islamabad Bar Council · Criminal | Family | Legal Advisor
+                  </p>
                   <p className="font-sans text-body-md text-luxe-grey leading-relaxed">
-                    An accomplished advocate specializing in complex legal matters spanning property, family, criminal, business, and cyber crime law. With 15+ years of dedicated practice, Julian provides strategic counsel and expert representation to clients navigating high-stakes legal challenges.
+                    With over 15 years of experience practising before the Islamabad High Court and subordinate courts, Rana Muhammad Zahid Muneer provides expert legal representation in criminal, family, property, and civil matters. Rated 5.0 ★ on Google with 34 verified client reviews.
                   </p>
                 </div>
               </div>
@@ -181,12 +158,11 @@ export default function BlogPost() {
                 <h3 className="font-serif text-headline-sm">Need Legal Help?</h3>
               </div>
               <p className="font-sans text-body-md text-luxe-cream/90 mb-stack-md">
-                Discuss this matter with Advocate Julian Thorne for expert guidance.
+                Discuss your legal matter directly with Rana Muhammad Zahid Muneer — Advocate High Court.
               </p>
               <Link
                 to="/consultation"
-                className="block w-full bg-luxe-gold px-4 py-3 rounded-lg font-sans font-bold text-sm text-center hover:shadow-luxury-md hover:bg-luxe-gold-dark transition-all tracking-wide uppercase"
-                style={{ color: '#000000' }}
+                className="block w-full bg-luxe-gold text-luxe-black px-4 py-3 rounded-lg font-sans font-bold text-sm text-center hover:shadow-luxury-md hover:bg-luxe-gold-dark transition-all tracking-wide uppercase"
               >
                 Book Consultation
               </Link>

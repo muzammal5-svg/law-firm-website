@@ -6,14 +6,14 @@ import { buildWhatsAppUrl } from '../../utils/whatsapp'
  * Call-to-action banner sections with luxury design
  */
 export default function CTABanner({ 
-  title = 'Transform Your Legal Challenges',
-  subtitle = 'Expert counsel tailored to your unique circumstances',
+  title = 'Clarity in Every Financial Decision',
+  subtitle = 'Expert tax, financial, and corporate advisory tailored to your circumstances',
   variant = 'primary'
 }) {
   const whatsappUrl = buildWhatsAppUrl()
-  
-  const bgClass = variant === 'primary' 
-    ? 'bg-gradient-to-r from-luxe-black via-luxe-dark to-luxe-black text-luxe-cream' 
+
+  const bgClass = variant === 'primary'
+    ? 'bg-gradient-to-r from-luxe-black via-luxe-dark to-luxe-black text-luxe-cream'
     : 'bg-luxe-dark text-luxe-light'
 
   return (
@@ -50,11 +50,10 @@ export default function CTABanner({
         <div className="flex flex-col sm:flex-row gap-6 justify-center mt-stack-md">
           <Link
             to="/consultation"
-            className="group inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-luxe-gold to-luxe-gold-dark rounded-xl font-sans font-bold text-sm tracking-widest uppercase transition-all duration-300 hover:shadow-luxury-xl hover:-translate-y-1 active:translate-y-0 transform"
-            style={{ color: '#000000' }}
+            className="group inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-luxe-gold to-luxe-gold-dark text-luxe-black rounded-xl font-sans font-bold text-sm tracking-widest uppercase transition-all duration-300 hover:shadow-luxury-xl hover:-translate-y-1 active:translate-y-0 transform"
           >
             <MaterialIcon name="calendar_today" className="mr-3 text-lg" />
-            Schedule Consultation
+            Book Free Consultation
             <MaterialIcon name="arrow_forward" className="ml-2 group-hover:translate-x-1 transition-transform" />
           </Link>
           <a
@@ -71,9 +70,8 @@ export default function CTABanner({
           </a>
         </div>
 
-        {/* Trust Text */}
         <p className="font-sans text-xs text-luxe-cream/60 mt-8 tracking-wide">
-          ✓ Available 24/7 • ✓ Confidential Consultations • ✓ Expert Legal Team
+          ✓ Free Initial Consultation &nbsp;•&nbsp; ✓ Islamabad High Court &nbsp;•&nbsp; ✓ Criminal · Family · Legal
         </p>
       </div>
     </section>

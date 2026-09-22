@@ -286,8 +286,8 @@ export default function MultiStepLeadForm({ onSuccess, className = '' }) {
                   control: (base) => ({
                     ...base,
                     padding: '6px',
-                    borderColor: '#D4A574',
-                    '&:hover': { borderColor: '#D4A574' },
+                    borderColor: '#C9A84C',
+                    '&:hover': { borderColor: '#C9A84C' },
                   }),
                 }}
               />
@@ -343,8 +343,8 @@ export default function MultiStepLeadForm({ onSuccess, className = '' }) {
                   control: (base) => ({
                     ...base,
                     padding: '6px',
-                    borderColor: '#D4A574',
-                    '&:hover': { borderColor: '#D4A574' },
+                    borderColor: '#C9A84C',
+                    '&:hover': { borderColor: '#C9A84C' },
                   }),
                 }}
               />
@@ -423,8 +423,8 @@ export default function MultiStepLeadForm({ onSuccess, className = '' }) {
                   control: (base) => ({
                     ...base,
                     padding: '6px',
-                    borderColor: '#D4A574',
-                    '&:hover': { borderColor: '#D4A574' },
+                    borderColor: '#C9A84C',
+                    '&:hover': { borderColor: '#C9A84C' },
                   }),
                 }}
               />
