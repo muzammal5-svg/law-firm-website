@@ -12,7 +12,7 @@ export const firmConfig = {
   // ============================================================================
   region: 'pk',
   firmName: 'Rana M. Zahid Muneer Advocate',
-  tagline: 'Trusted Legal Advocacy — Criminal | Family | Corporate — Islamabad High Court',
+  tagline: 'Trusted Legal Advocacy — Civil Rights | Benefits | Eviction | Tenant Matters',
   logoText: 'RZM',
 
   // ============================================================================
@@ -20,7 +20,7 @@ export const firmConfig = {
   // ============================================================================
   attorney: {
     name: 'Rana Muhammad Zahid Muneer',
-    fullTitle: 'Advocate High Court | Criminal | Family | Legal Advisor',
+    fullTitle: 'Advocate | Civil Rights Litigation | Disability Benefits | Eviction | Will Writing',
     credentials: ['Advocate High Court', 'Islamabad Bar Council'],
     barNumber: 'Islamabad High Court Bar – Permanent Member',
     yearsExperience: 15,
@@ -28,18 +28,18 @@ export const firmConfig = {
     bio: {
       headline: 'Trusted Advocacy, Proven Results — Islamabad High Court',
       intro:
-        'Rana Muhammad Zahid Muneer is a distinguished Advocate of the High Court of Islamabad with extensive experience in criminal law, family law, and general legal advisory. Practising from Chamber No. 27, F-8 Markaz, Islamabad, he is known for his commitment to clients, sharp legal acumen, and calm, strategic approach in court.',
+        'Rana Muhammad Zahid Muneer helps clients navigate complex civil rights claims, disability benefit disputes, eviction challenges, landlord and tenant litigation, traffic ticket matters, will drafting, and workers\' compensation claims with practical, result-focused advocacy.',
       philosophy:
-        'Rana Zahid believes that every client deserves clear, honest, and fearless legal representation. Whether defending a criminal matter, navigating a complex family dispute, or advising a business on legal risk, his approach is rooted in thorough preparation, procedural precision, and unwavering dedication to the client\'s cause.',
+        'Rana Zahid believes that every client deserves clear, honest, and determined representation. Whether protecting constitutional rights, challenging a denied benefit, or resolving a tenancy dispute, his approach is rooted in careful preparation, strategic action, and a commitment to protecting the client\'s interests.',
       expertise:
-        'With a 5.0 Google rating and a loyal client base built entirely on referrals and results, Rana Zahid has established one of Islamabad\'s most respected individual legal practices. He regularly appears before the Islamabad High Court and subordinate courts, handling matters with the professionalism and tenacity that the bar demands.',
+        'With a strong litigation practice and a client-first approach, Rana Zahid serves individuals and families who need skilled guidance in high-stakes disputes, procedural challenges, and entitlement claims across civil and administrative matters.',
     },
 
     milestones: [
       {
         year: '2005',
         title: 'Enrolled as Advocate',
-        desc: 'Enrolled as an Advocate with the Islamabad Bar Council, beginning a legal career dedicated to criminal defence, family law, and corporate advisory.',
+        desc: 'Enrolled as an Advocate with the Islamabad Bar Council, initiating a litigation practice focused on civil rights, administrative disputes, and entitlement claims.',
       },
       {
         year: '2009',
@@ -48,13 +48,13 @@ export const firmConfig = {
       },
       {
         year: '2012',
-        title: 'Criminal Law Specialisation',
-        desc: 'Developed a focused criminal law practice spanning FIR registration, bail applications, trials, and appellate matters — representing both accused and complainant parties with equal vigour.',
+        title: 'Litigation Practice Expansion',
+        desc: 'Expanded the practice to include civil rights claims, disability benefit challenges, eviction defence, landlord-tenant disputes, and workers’ compensation matters.',
       },
       {
         year: '2015',
-        title: 'Family Law Practice Expansion',
-        desc: 'Expanded the practice to include a full suite of family law services — divorce, khula, custody, maintenance, and inheritance matters — serving clients across Islamabad and Rawalpindi.',
+        title: 'Client Advocacy & Advisory',
+        desc: 'Developed a client-focused litigation and advisory approach covering tenant disputes, traffic ticket defence, estate planning through wills, and strategic legal guidance.',
       },
       {
         year: '2018',
@@ -111,111 +111,129 @@ export const firmConfig = {
   // ============================================================================
   practiceAreas: [
     {
-      id: 'criminal-law',
-      title: 'Criminal Law',
-      slug: 'criminal-law',
-      icon: 'gavel',
-      description:
-        'Expert criminal defence and prosecution advisory covering FIR registration, bail applications, trials, and appeals before Islamabad High Court and subordinate courts.',
-      fullDescription:
-        'Rana Muhammad Zahid Muneer provides comprehensive criminal law services — from the moment an FIR is lodged through to acquittal or appeal. Services include pre-arrest bail, post-arrest bail, trial defence, prosecution support, and appellate representation. Criminal matters handled include murder, theft, fraud, cybercrime, PECA offences, drug-related charges, and white-collar crime.',
-      subAreas: [
-        'FIR Registration & Quashing',
-        'Pre-Arrest & Post-Arrest Bail',
-        'Criminal Trial Defence',
-        'Prosecution Advisory',
-        'Appeals & Revisions',
-        'Cybercrime & PECA Offences',
-      ],
-    },
-    {
-      id: 'family-law',
-      title: 'Family Law',
-      slug: 'family-law',
-      icon: 'family_restroom',
-      description:
-        'Compassionate and professional handling of divorce, khula, child custody, maintenance, and inheritance matters under Pakistani family law.',
-      fullDescription:
-        'Family disputes require both legal precision and human sensitivity. The practice handles all aspects of family law including divorce, khula (judicial divorce), child custody and guardianship, maintenance claims, dower recovery, and inheritance/succession matters. Cases are handled with strict confidentiality and a focus on achieving resolution efficiently while protecting the client\'s rights.',
-      subAreas: [
-        'Divorce & Khula',
-        'Child Custody & Guardianship',
-        'Maintenance & Dower Recovery',
-        'Inheritance & Succession',
-        'Marriage Registration',
-        'Domestic Violence Protection',
-      ],
-    },
-    {
-      id: 'legal-advisory',
-      title: 'Legal Advisory',
-      slug: 'legal-advisory',
+      id: 'civil-rights-litigation',
+      title: 'Civil Rights Litigation',
+      slug: 'civil-rights-litigation',
       icon: 'balance',
       description:
-        'Practical legal advisory for individuals and businesses — contract review, property disputes, civil litigation, and general legal guidance.',
+        'Vigorous representation for clients whose fundamental rights and civil liberties have been violated — enforcing constitutional protections through the courts.',
       fullDescription:
-        'Beyond court representation, the practice offers proactive legal advisory services designed to prevent disputes before they arise. Services include contract drafting and review, property verification and dispute resolution, civil litigation, tenancy matters, and ongoing legal retainers for businesses requiring regular counsel. Clients receive clear, jargon-free legal advice tailored to their specific situation.',
+        'Civil rights litigation addresses violations of fundamental rights guaranteed under the Constitution of Pakistan. Rana Muhammad Zahid Muneer represents individuals who have suffered unlawful discrimination, abuse of authority, wrongful detention, or denial of constitutional protections. Cases are argued before the Islamabad High Court and subordinate courts, seeking injunctive relief, damages, and enforceable remedies to protect clients\' rights.',
       subAreas: [
-        'Contract Drafting & Review',
-        'Property & Title Disputes',
-        'Civil Litigation',
-        'Tenancy & Rent Matters',
-        'Business Legal Advisory',
-        'Document Attestation & Notary',
+        'Fundamental Rights Petitions',
+        'Discrimination & Harassment Claims',
+        'Unlawful Detention Challenges',
+        'Police Misconduct Cases',
+        'Writ of Mandamus & Certiorari',
+        'Constitutional Remedy Applications',
       ],
     },
     {
-      id: 'property-law',
-      title: 'Property & Land Law',
-      slug: 'property-law',
+      id: 'disability-benefits-litigation',
+      title: 'Disability Benefits Litigation',
+      slug: 'disability-benefits-litigation',
+      icon: 'accessible',
+      description:
+        'Legal representation for individuals denied or underpaid disability benefits — challenging unlawful decisions by employers, insurers, and government bodies.',
+      fullDescription:
+        'When disability benefits are wrongfully denied, delayed, or reduced, affected individuals need skilled legal advocacy to recover what they are entitled to. The practice handles disputes against employers, insurance companies, and relevant government departments. Services cover initial claims support, appeals against adverse decisions, and litigation before tribunals and civil courts to secure the benefits clients rightfully deserve.',
+      subAreas: [
+        'Disability Benefit Claim Disputes',
+        'Appeals Against Denial Decisions',
+        'Employer Disability Obligation Claims',
+        'Insurance Dispute Litigation',
+        'Tribunal & Court Representation',
+        'Settlement Negotiation',
+      ],
+    },
+    {
+      id: 'eviction-litigation',
+      title: 'Eviction Litigation',
+      slug: 'eviction-litigation',
       icon: 'home_work',
       description:
-        'Property purchase verification, title disputes, possession matters, and real estate litigation before civil courts of Islamabad.',
+        'Expert legal representation in eviction proceedings — protecting tenants from unlawful eviction and assisting landlords in lawful possession recovery.',
       fullDescription:
-        'Property disputes are among the most stressful legal matters a person can face. The practice handles title deed verification, property purchase and transfer advisory, possession and eviction cases, fraudulent transfer disputes, and co-ownership disagreements. With Islamabad\'s growing real estate market, having expert legal counsel before signing any property document is essential.',
+        'Eviction disputes require fast and precise legal action. The practice represents both landlords seeking lawful recovery of possession and tenants facing unlawful or improper eviction proceedings. Services include filing and defending eviction suits, obtaining urgent stay orders to prevent illegal dispossession, and navigating the Rent Restriction Ordinance and civil court procedures to achieve a lawful and expedient resolution.',
       subAreas: [
-        'Title Deed Verification',
-        'Property Purchase Advisory',
-        'Possession & Eviction Cases',
-        'Fraudulent Transfer Disputes',
-        'Co-Ownership Disagreements',
-        'Mortgage & Lien Matters',
+        'Tenant Eviction Defence',
+        'Landlord Possession Recovery',
+        'Urgent Stay Order Applications',
+        'Unlawful Eviction Challenges',
+        'Rent Controller Proceedings',
+        'Settlement & Mediation',
       ],
     },
     {
-      id: 'civil-litigation',
-      title: 'Civil Litigation',
-      slug: 'civil-litigation',
-      icon: 'account_balance',
+      id: 'landlord-tenant-litigation',
+      title: 'Landlord & Tenant Litigation',
+      slug: 'landlord-tenant-litigation',
+      icon: 'apartment',
       description:
-        'Representation in civil suits, recovery of money, injunctions, and declaratory suits before civil courts and the Islamabad High Court.',
+        'Comprehensive legal services for all landlord and tenant disputes — rent recovery, lease breaches, deposit disputes, and tenancy agreement enforcement.',
       fullDescription:
-        'Civil litigation requires strategic thinking as much as legal knowledge. The practice represents clients in money recovery suits, declaratory suits, injunction applications, specific performance claims, and breach of contract matters. Each civil case is approached with a clear litigation strategy designed to achieve the fastest, most cost-effective resolution — whether through negotiation, mediation, or trial.',
+        'Landlord and tenant disputes can escalate quickly without prompt legal intervention. The practice handles the full range of tenancy matters including rent recovery suits, enforcement of tenancy agreement terms, breach of lease disputes, security deposit claims, illegal subletting, and property damage claims. Both landlords and tenants are represented across Islamabad\'s civil courts and Rent Controller tribunals.',
       subAreas: [
-        'Money Recovery Suits',
-        'Declaratory Suits',
-        'Injunction Applications',
-        'Specific Performance Claims',
-        'Breach of Contract',
-        'Consumer Protection Matters',
+        'Rent Recovery Suits',
+        'Lease Agreement Enforcement',
+        'Breach of Tenancy Claims',
+        'Security Deposit Disputes',
+        'Illegal Subletting Cases',
+        'Rent Controller Tribunal Hearings',
       ],
     },
     {
-      id: 'constitutional-matters',
-      title: 'Constitutional & Writ Matters',
-      slug: 'constitutional-matters',
-      icon: 'menu_book',
+      id: 'traffic-ticket-litigation',
+      title: 'Traffic Ticket Litigation',
+      slug: 'traffic-ticket-litigation',
+      icon: 'directions_car',
       description:
-        'Filing and arguing writ petitions, constitutional petitions, and fundamental rights applications before the Islamabad High Court.',
+        'Professional legal defence against traffic citations, licence suspensions, and road offence charges — protecting your driving record and licence.',
       fullDescription:
-        'As an Advocate High Court, Rana Muhammad Zahid Muneer has standing to file and argue constitutional petitions directly before the Islamabad High Court. Services include writ petitions for enforcement of fundamental rights, service matters, departmental appeals, and challenges to illegal orders or actions by public authorities. Constitutional litigation requires both procedural expertise and persuasive advocacy — qualities that define this practice.',
+        'Traffic violations and citations can have serious consequences including fines, licence suspension, and even criminal liability in serious road offence cases. The practice provides legal representation to challenge traffic tickets, contest licence suspension orders, defend against reckless or dangerous driving charges, and handle accident-related road offence proceedings. Each case is reviewed for procedural defects and substantive legal defences.',
       subAreas: [
-        'Writ of Mandamus & Certiorari',
-        'Fundamental Rights Petitions',
-        'Service & Employment Matters',
-        'Departmental Appeals',
-        'Challenges to Public Authority Orders',
-        'Habeas Corpus Applications',
+        'Traffic Citation Challenges',
+        'Licence Suspension Appeals',
+        'Reckless Driving Defence',
+        'Accident-Related Offence Cases',
+        'Road Traffic Tribunal Hearings',
+        'Fine Reduction Applications',
+      ],
+    },
+    {
+      id: 'will-writing',
+      title: 'Will Writing',
+      slug: 'will-writing',
+      icon: 'edit_document',
+      description:
+        'Professional drafting of legally valid wills and testamentary documents — ensuring your estate is distributed according to your wishes under Pakistani law.',
+      fullDescription:
+        'A properly drafted will is one of the most important legal documents you will ever sign. The practice prepares wills that are legally valid under Pakistani law and Islamic inheritance principles, clearly setting out the distribution of assets, appointment of executors, guardianship of minor children, and any specific bequests. Services also include will registration, review of existing wills, and estate planning advisory to minimise future disputes among heirs.',
+      subAreas: [
+        'Drafting Legally Valid Wills',
+        'Islamic Inheritance Compliance',
+        'Executor Appointment & Guidance',
+        'Minor Guardianship Provisions',
+        'Will Registration',
+        'Estate & Succession Planning',
+      ],
+    },
+    {
+      id: 'workers-compensation-litigation',
+      title: "Workers' Compensation Litigation",
+      slug: 'workers-compensation-litigation',
+      icon: 'engineering',
+      description:
+        'Strong legal advocacy for workers injured on the job or denied lawful compensation — pursuing claims against employers and insurers to full resolution.',
+      fullDescription:
+        "Workers injured in the course of employment are entitled to compensation under Pakistan's Workmen's Compensation Act and related labour laws. The practice represents workers in claiming compensation for workplace injuries, occupational diseases, and fatalities. Services include filing compensation claims, negotiating with employers and insurers, and litigating before Labour Courts and civil courts when fair settlement is refused.",
+      subAreas: [
+        'Workplace Injury Compensation Claims',
+        'Occupational Disease Claims',
+        'Fatal Accident Compensation',
+        'Employer Liability Disputes',
+        'Labour Court Representation',
+        'Insurance Settlement Negotiation',
       ],
     },
   ],
@@ -227,44 +245,44 @@ export const firmConfig = {
     {
       id: 1,
       name: 'Muhammad Asif',
-      title: 'Client – Criminal Defence Matter',
+      title: 'Client – Civil Rights Matter',
       hasVideo: false,
       image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face',
       videoUrl: null,
-      text: 'Rana Sahib handled my case with complete professionalism. He got my pre-arrest bail approved when I was told it was impossible. His knowledge of criminal procedure and his confidence in court gave our family tremendous peace of mind. Highly recommended.',
+      text: 'Rana Sahib handled my civil rights matter with calm confidence and strong legal preparation. He explained every step clearly and fought for a fair outcome without unnecessary delays. Highly recommended for serious disputes.',
       rating: 5,
       isDemo: true,
     },
     {
       id: 2,
       name: 'Sadia Noor',
-      title: 'Client – Family Law (Khula)',
+      title: 'Client – Disability Benefits Appeal',
       hasVideo: false,
       image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=face',
       videoUrl: null,
-      text: 'Going through a khula is incredibly difficult, but Rana Zahid handled my case with both legal expertise and human empathy. He kept me informed at every step, resolved the matter in under three months, and made sure my rights were fully protected.',
+      text: 'My disability claim was denied and the process felt overwhelming. Rana Zahid reviewed the case carefully, built a solid argument, and stood by me through the appeal with professionalism and genuine support.',
       rating: 5,
       isDemo: true,
     },
     {
       id: 3,
       name: 'Tariq Hussain',
-      title: 'Client – Property Dispute',
+      title: 'Client – Eviction Defence',
       hasVideo: false,
       image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face',
       videoUrl: null,
-      text: 'I had been dealing with a property dispute for two years with no resolution. Rana Sahib reviewed the case, identified a key procedural weakness in the opposing claim, and we won the injunction within weeks. Honest, hardworking, and truly expert.',
+      text: 'I was facing a difficult eviction issue and needed urgent legal clarity. Rana Sahib gave practical advice, protected my rights, and handled the case with the confidence and attention it deserved.',
       rating: 5,
       isDemo: true,
     },
     {
       id: 4,
       name: 'Usman Tashkia',
-      title: 'Client – PMC Case',
+      title: 'Client – Will Writing',
       hasVideo: false,
       image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face',
       videoUrl: null,
-      text: 'Committed man. What a great experience with you in my PMC case. Thorough preparation and excellent advocacy throughout the entire process.',
+      text: 'The will drafting process was handled with care and precision. Rana Zahid explained everything clearly and made sure the document reflected my wishes and family circumstances correctly.',
       rating: 5,
       isDemo: true,
     },
@@ -303,11 +321,11 @@ export const firmConfig = {
   // SEO & META
   // ============================================================================
   seo: {
-    defaultTitle: 'Rana M. Zahid Muneer Advocate | High Court Islamabad – Criminal, Family & Legal Advisory',
+    defaultTitle: 'Rana M. Zahid Muneer Advocate | Civil Rights, Disability Benefits, Eviction & Litigation',
     defaultDescription:
-      'Rana Muhammad Zahid Muneer – Advocate High Court Islamabad. Expert in criminal law, family law, property disputes, and civil litigation. Chamber No. 27, F-8 Markaz, Islamabad. 5.0 ★ rated.',
+      'Rana Muhammad Zahid Muneer – Advocate handling civil rights litigation, disability benefits claims, eviction and landlord-tenant matters, traffic ticket litigation, will writing, and workers’ compensation disputes in Islamabad.',
     defaultKeywords:
-      'Advocate High Court Islamabad, Criminal Lawyer Islamabad, Family Lawyer Islamabad, Divorce Lawyer Islamabad, Property Dispute Lawyer, Bail Application Islamabad, Rana Zahid Muneer Advocate, F-8 Markaz Lawyer',
+      'Civil rights litigation, disability benefits litigation, eviction litigation, landlord and tenant litigation, traffic ticket litigation, will writing, workers compensation litigation, tailored legal services Islamabad',
     defaultImage: '/Rana Muhammad Zahid Muneer.jpg',
   },
 

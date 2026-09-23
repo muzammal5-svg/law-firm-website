@@ -31,7 +31,7 @@ export default function Blog() {
     <>
       <PageMeta
         title="Blog"
-        description="Expert legal insights and articles on property law, family law, criminal defense, business law, and cyber crime."
+        description="Practical legal insights on civil rights litigation, disability benefits, eviction matters, landlord-tenant disputes, traffic ticket defence, wills, and workers’ compensation claims."
       />
 
       {/* Luxury Hero */}
@@ -45,7 +45,7 @@ export default function Blog() {
           </AnimateOnScroll>
           <AnimateOnScroll animation="fadeInUp" delay={0.1}>
             <p className="font-sans text-body-lg text-luxe-grey max-w-3xl mx-auto">
-              Expert perspectives on navigating complex legal matters. Stay informed with our latest articles on property, family, criminal, business, and cyber law.
+              Clear legal guidance on the issues that most affect people and families — rights claims, benefit disputes, tenancy conflicts, and day-to-day legal protection.
             </p>
           </AnimateOnScroll>
           <div className="h-1 w-16 bg-gradient-to-r from-luxe-gold to-luxe-gold-dark mx-auto rounded-full mt-stack-md"></div>

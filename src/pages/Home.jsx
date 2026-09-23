@@ -42,7 +42,7 @@ export default function Home() {
       />
 
       {/* ── HERO ───────────────────────────────────────────────────── */}
-      <section className="relative min-h-screen md:min-h-0 md:h-[680px] flex items-center overflow-hidden bg-luxe-black">
+      <section className="relative overflow-hidden bg-luxe-black">
         {/* Background */}
         <div className="absolute inset-0 z-0">
           <img
@@ -50,29 +50,28 @@ export default function Home() {
             alt="Legal advocacy background"
             className="w-full h-full object-cover opacity-20"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-luxe-black via-luxe-black/90 to-luxe-black/50" />
+          <div className="absolute inset-0 bg-gradient-to-r from-luxe-black via-luxe-black/95 to-luxe-black/70" />
         </div>
 
-        <div className="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full py-stack-lg md:py-0">
-          <div className="max-w-3xl">
+        <div className="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full py-10 md:py-14 lg:py-20">
+          <div className="grid grid-cols-1 md:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-20 items-center">
+            <div className="max-w-3xl">
             <AnimateOnScroll animation="fadeInUp">
-              <div className="trust-badge mb-6">
+              <div className="trust-badge mb-5 max-w-full text-[10px] md:text-[9px] lg:text-[11px]">
                 <MaterialIcon name="verified" className="text-sm" />
-                Advocate High Court · Islamabad Bar Council · 5.0 ★ Rated
+                Advocate High Court · Islamabad Bar Council · 5.0 Rated
               </div>
             </AnimateOnScroll>
 
             <AnimateOnScroll animation="fadeInUp" delay={0.1}>
-              <h1 className="font-serif text-[42px] md:text-[60px] leading-[1.1] text-white mb-6">
-                Trusted Legal Advocacy —
-                <span className="text-luxe-gold"> Criminal · Family · Legal Advisory</span>
+              <h1 className="font-serif text-[38px] md:text-[40px] lg:text-[56px] leading-[1.06] text-white mb-4 md:mb-5">
+                Clear legal action when your <span className="text-luxe-gold">rights, livelihood, or home</span> are at risk.
               </h1>
             </AnimateOnScroll>
 
             <AnimateOnScroll animation="fadeInUp" delay={0.2}>
-              <p className="font-sans text-lg text-white/75 mb-8 max-w-2xl leading-relaxed">
-                Over 15 years of expert legal representation before the Islamabad High Court and
-                subordinate courts. Chamber No. 27, F-8 Markaz, Islamabad.
+              <p className="font-sans text-sm md:text-base lg:text-lg text-white/75 mb-6 md:mb-7 max-w-2xl leading-relaxed">
+                Practical representation for civil rights, disability benefits, eviction and tenancy disputes, traffic matters, wills, and workers’ compensation claims.
               </p>
             </AnimateOnScroll>
 
@@ -107,6 +106,25 @@ export default function Home() {
                 </svg>
                 Quick message on WhatsApp
               </a>
+            </AnimateOnScroll>
+          </div>
+
+            <AnimateOnScroll animation="fadeInRight" delay={0.2}>
+              <div className="relative mx-auto w-full max-w-[300px] md:max-w-[330px] lg:max-w-[360px] md:justify-self-end">
+                <div className="absolute -inset-3 border border-luxe-gold/30 rounded-2xl translate-x-3 translate-y-3" />
+                <div className="relative overflow-hidden rounded-2xl border border-white/15 bg-white shadow-[0_24px_60px_rgba(0,0,0,0.35)]">
+                  <img
+                    src={config.attorney.image}
+                    alt={`${config.attorney.name}, Advocate High Court`}
+                    className="aspect-[408/525] w-full object-contain object-top"
+                  />
+                  <div className="border-t border-luxe-gold/25 bg-luxe-black px-5 py-4 md:px-6 md:py-5">
+                    <p className="font-sans text-xs uppercase tracking-[0.18em] text-luxe-gold mb-2">Your Advocate</p>
+                    <p className="font-serif text-xl md:text-2xl text-white leading-tight">{config.attorney.name}</p>
+                    <p className="font-sans text-sm text-white/65 mt-1">{config.attorney.fullTitle}</p>
+                  </div>
+                </div>
+              </div>
             </AnimateOnScroll>
           </div>
         </div>
@@ -207,19 +225,19 @@ export default function Home() {
                 Why Rana M. Zahid Muneer
               </span>
               <h2 className="font-serif text-[36px] leading-tight mb-6">
-                High Court Expertise<br />You Can Rely On
+                Legal Strategy for<br />Complex Everyday Disputes
               </h2>
               <p className="font-sans text-white/70 text-base leading-relaxed mb-8">
-                As an enrolled Advocate High Court with over 15 years of experience,
-                Rana Muhammad Zahid Muneer provides expert legal representation across criminal,
-                family, and civil matters — with a 5.0 Google rating earned entirely through results.
+                As an Advocate with a practical litigation focus, Rana Muhammad Zahid Muneer helps
+                clients resolve civil rights issues, denied disability benefits, eviction conflicts,
+                tenant disputes, licensing challenges, estate planning, and workplace compensation claims.
               </p>
               <div className="space-y-4">
                 {[
-                  { icon: 'gavel', text: 'Advocate High Court — right of audience before Islamabad High Court' },
-                  { icon: 'verified', text: '5.0 ★ Google rating with 34 verified client reviews' },
-                  { icon: 'family_restroom', text: 'Criminal, family, property, civil and constitutional matters' },
-                  { icon: 'handshake', text: 'Transparent fees agreed upfront — no hidden charges' },
+                  { icon: 'gavel', text: 'Advocate High Court representation for contested claims and urgent litigation' },
+                  { icon: 'verified', text: 'Clear, client-focused legal advice with practical next steps' },
+                  { icon: 'balance', text: 'Civil rights, disability, eviction, tenant, traffic, and workers’ compensation matters' },
+                  { icon: 'handshake', text: 'Transparent legal guidance from consultation through resolution' },
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <div className="w-8 h-8 rounded-full bg-luxe-gold/15 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -234,10 +252,10 @@ export default function Home() {
             <AnimateOnScroll animation="fadeInRight" delay={0.15}>
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { icon: 'gavel', label: 'Criminal Law', sub: 'Defence · Bail · Trial' },
-                  { icon: 'family_restroom', label: 'Family Law', sub: 'Divorce · Custody · Maintenance' },
-                  { icon: 'balance', label: 'Legal Advisory', sub: 'Contracts · Civil matters' },
-                  { icon: 'home_work', label: 'Property Law', sub: 'Title · Disputes · Possession' },
+                  { icon: 'balance', label: 'Civil Rights Litigation', sub: 'Constitutional claims · Remedies' },
+                  { icon: 'accessible', label: 'Disability Benefits', sub: 'Claims · Appeals · Denials' },
+                  { icon: 'home_work', label: 'Eviction & Tenant Matters', sub: 'Possession · Rent disputes' },
+                  { icon: 'directions_car', label: 'Traffic Ticket Litigation', sub: 'Tickets · Suspensions · Defence' },
                 ].map((card, i) => (
                   <div
                     key={i}
@@ -338,7 +356,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <p className="font-sans text-white/50 text-xs tracking-widest uppercase">Professional Credentials &amp; Memberships</p>
             <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10">
-              {['Advocate High Court', 'Islamabad Bar Council', 'Criminal Law', 'Family Law', '5.0 ★ Google Rated'].map((c) => (
+              {['Advocate High Court', 'Islamabad Bar Council', 'Civil Rights Litigation', 'Disability Benefits', 'Will Writing'].map((c) => (
                 <span key={c} className="font-sans text-sm text-white/70 font-medium tracking-wide border-l border-luxe-gold/30 pl-5 first:border-0 first:pl-0">
                   {c}
                 </span>

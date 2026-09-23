@@ -6,7 +6,7 @@ import MaterialIcon from '../components/ui/MaterialIcon'
 import { faqCategories } from '../data/faqData'
 
 export default function FAQ() {
-  const [activeCategory, setActiveCategory] = useState('criminal-law')
+  const [activeCategory, setActiveCategory] = useState('civil-rights-litigation')
   const [expandedItem, setExpandedItem] = useState(null)
 
   const currentCategory = faqCategories.find(cat => cat.id === activeCategory)
@@ -29,7 +29,8 @@ export default function FAQ() {
           </AnimateOnScroll>
           <AnimateOnScroll animation="fadeInUp" delay={0.1}>
             <p className="font-sans text-body-lg text-luxe-grey">
-              Get answers to common questions about our legal services, fees, and process.
+              Get answers to common questions about civil rights, disability benefits, eviction,
+              landlord-tenant disputes, traffic tickets, wills, and workers’ compensation matters.
             </p>
           </AnimateOnScroll>
         </div>
@@ -113,7 +114,8 @@ export default function FAQ() {
             <h2 className="font-serif text-headline-md mb-4">Still Have Questions?</h2>
             <p className="font-sans text-body-lg text-luxe-cream/70 mb-8 max-w-xl mx-auto">
               Speak directly with Rana Muhammad Zahid Muneer for clear, honest answers about your
-              criminal, family, property, or civil legal matter.
+              civil rights, disability benefits, eviction, tenancy, traffic, will writing, or workers’
+              compensation matter.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link

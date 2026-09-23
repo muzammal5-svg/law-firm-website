@@ -127,7 +127,7 @@ export default function PracticeAreaDetail() {
                 Your Advocate's Credentials
               </p>
               <div className="space-y-2">
-                {['Advocate High Court', 'Islamabad Bar Council', 'Criminal Law Specialist', 'Family Law Practice', '5.0 ★ Google Rated'].map((c) => (
+                {['Advocate High Court', 'Islamabad Bar Council', 'Civil Rights Litigation', 'Disability Benefits & Evictions', '5.0 ★ Google Rated'].map((c) => (
                   <div key={c} className="flex items-center gap-2">
                     <MaterialIcon name="verified" className="text-luxe-gold text-sm" />
                     <span className="font-sans text-xs text-luxe-grey font-medium">{c}</span>

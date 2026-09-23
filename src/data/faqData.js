@@ -1,111 +1,120 @@
 export const faqCategories = [
   {
-    id: 'criminal-law',
-    title: 'Criminal Law',
-    icon: 'gavel',
+    id: 'civil-rights-litigation',
+    title: 'Civil Rights Litigation',
+    icon: 'balance',
     items: [
       {
-        question: 'What should I do immediately if an FIR is registered against me?',
+        question: 'What is civil rights litigation?',
         answer:
-          'Do not panic and do not speak to police without legal counsel. Contact an advocate immediately. The first priority is securing pre-arrest bail to prevent detention while the case is being assessed. Rana Muhammad Zahid Muneer can file a pre-arrest bail application before the Sessions Court or High Court on an urgent basis. Time is critical — call as soon as the FIR is lodged.',
+          'Civil rights litigation is used when a person’s constitutional or legal rights have been violated by an authority, employer, institution, or other party. This may include unlawful detention, discrimination, denial of equal treatment, or abuse of administrative power. We review the facts, determine the proper legal remedy, and pursue the strongest available action in court.',
       },
       {
-        question: 'What is the difference between pre-arrest bail and post-arrest bail?',
+        question: 'When should I seek help for a civil rights claim?',
         answer:
-          'Pre-arrest bail (anticipatory bail) is obtained before an arrest is made — it protects you from being taken into custody while the case proceeds. Post-arrest bail is applied for after you have been arrested and are in police or judicial custody. Pre-arrest bail is far preferable as it avoids detention. Both require a strong legal argument and are routinely handled by this practice.',
-      },
-      {
-        question: 'Can a criminal case be settled or resolved out of court?',
-        answer:
-          'In Pakistan, certain criminal offences are "compoundable" — meaning the complainant and accused can reach a settlement and the case is withdrawn. This applies to many offences under the Pakistan Penal Code. Non-compoundable offences (such as murder) cannot be settled privately, though an out-of-court compromise can influence sentencing. We advise clients on whether their matter is compoundable and handle the full settlement process.',
-      },
-      {
-        question: 'What criminal matters do you handle?',
-        answer:
-          'The practice covers the full range of criminal law: murder and attempted murder, theft and robbery, fraud and cheating, cybercrime and PECA offences, drug-related charges, assault, forgery, kidnapping, and white-collar crime. We represent both accused persons (defence) and complainants (prosecution support) depending on the client\'s position.',
+          'You should seek legal assistance as soon as you believe your rights have been infringed or you have suffered unlawful treatment. Time-sensitive remedies such as injunctions, writ petitions, and urgent court applications often depend on fast action. Early advice can preserve evidence and improve your chances of a successful outcome.',
       },
     ],
   },
   {
-    id: 'family-law',
-    title: 'Family Law',
-    icon: 'family_restroom',
+    id: 'disability-benefits-litigation',
+    title: 'Disability Benefits Litigation',
+    icon: 'accessible',
     items: [
       {
-        question: 'What is the process for obtaining a divorce in Pakistan?',
+        question: 'What if my disability benefits claim is denied or delayed?',
         answer:
-          'For a husband, divorce is initiated by pronouncing talaq and filing a written notice with the Union Council. A 90-day reconciliation period begins. If reconciliation fails, divorce becomes effective. For a wife, divorce can be obtained through khula (judicial divorce via Family Court) or through talaq-e-tafwiz if delegated in the nikah nama. We handle both processes from filing to the final divorce certificate.',
+          'If your claim is denied, reduced, or delayed, you may have grounds to challenge the decision through an appeal or litigation. We assess the basis of the denial, review the supporting medical and employment records, and determine whether your entitlement was wrongly refused or under-calculated.',
       },
       {
-        question: 'What is khula and how long does it take?',
+        question: 'Can legal representation improve my disability benefits case?',
         answer:
-          'Khula is the right of a wife to seek dissolution of marriage through the Family Court. The wife files a suit, the court attempts reconciliation, and if it fails, the court dissolves the marriage — typically within 3 to 6 months depending on court scheduling and whether the husband contests. We handle khula cases with complete discretion and guide clients through every hearing.',
-      },
-      {
-        question: 'Who gets custody of children after divorce?',
-        answer:
-          'Under Pakistani law, the mother generally has the right of hizanat (physical custody) of young children — up to age 7 for boys and puberty for girls — unless found unfit. The father retains guardianship rights and is responsible for financial maintenance. Custody is always decided in the best interest of the child. We represent both mothers and fathers in custody proceedings.',
-      },
-      {
-        question: 'Can I claim maintenance from my husband?',
-        answer:
-          'Yes. A wife is legally entitled to maintenance (nafaqa) throughout the marriage and during the iddat period following divorce. If maintenance is not being paid, a suit can be filed in the Family Court. The court can award monthly maintenance and arrears for past unpaid amounts. Children\'s maintenance is a separate claim that continues until the children reach adulthood.',
+          'Yes. A clear legal argument, strategic evidence presentation, and procedural compliance often make a substantial difference in benefit disputes. We help clients build a stronger record, challenge adverse decisions, and pursue the benefits they are lawfully entitled to receive.',
       },
     ],
   },
   {
-    id: 'property-law',
-    title: 'Property & Land Law',
+    id: 'eviction-litigation',
+    title: 'Eviction Litigation',
     icon: 'home_work',
     items: [
       {
-        question: 'How can I verify that a property I am buying is legally clear?',
+        question: 'What should I do if I am facing an unlawful eviction?',
         answer:
-          'Before purchasing any property in Islamabad, verify: the title deed and chain of ownership, that the property is not subject to any mortgage or court order, that the seller is the actual registered owner (via NADRA and land records), and that there are no encroachments or possession disputes. We conduct full title due diligence and provide a written legal opinion before you commit to any purchase.',
+          'If you are being threatened or removed unlawfully, it is important to act immediately. We assess the legal status of possession, the notice served, and whether the eviction complies with the applicable law. In many cases, urgent court intervention can prevent an illegal dispossession or preserve your rights while the matter is resolved.',
       },
       {
-        question: 'What can I do if someone has illegally occupied my property?',
+        question: 'Can a landlord recover possession legally?',
         answer:
-          'If your property has been illegally occupied, you can file a civil suit for possession immediately, and obtain an urgent injunction to prevent further damage or construction. In some cases, a criminal complaint for criminal trespass under the PPC is also appropriate. Time matters — delay can complicate recovery. Contact us immediately for an urgent assessment.',
-      },
-    ],
-  },
-  {
-    id: 'civil-litigation',
-    title: 'Civil Litigation',
-    icon: 'account_balance',
-    items: [
-      {
-        question: 'I am owed money by someone who refuses to pay. What are my options?',
-        answer:
-          'You can file a money recovery suit in the appropriate civil court. If there is a signed agreement, cheque, or documentary evidence of the debt, the case is strengthened considerably. We also advise on whether a criminal complaint for cheque dishonour under Section 489-F PPC is appropriate alongside the civil suit. We send a formal legal notice first — which often results in payment without litigation.',
-      },
-      {
-        question: 'How long does a civil case typically take?',
-        answer:
-          'Civil case timelines vary based on court workload and complexity. A straightforward money recovery matter may resolve in 12–18 months. Complex property or contract disputes can take 2–4 years at trial level. We always assess settlement prospects honestly and advise whether negotiated resolution is preferable to protracted litigation.',
+          'Yes, but it must follow the proper legal process. We assist landlords in pursuing lawful recovery of possession and advise tenants on defensive rights where the process is improper or unfair. The correct route depends on the tenancy arrangement, notice period, and the applicable legal framework.',
       },
     ],
   },
   {
-    id: 'consultation',
-    title: 'Consultation & Fees',
-    icon: 'payments',
+    id: 'landlord-tenant-litigation',
+    title: 'Landlord & Tenant Litigation',
+    icon: 'apartment',
     items: [
       {
-        question: 'How do I schedule a consultation?',
+        question: 'How do I deal with a rent dispute or lease breach?',
         answer:
-          'You can reach Rana Muhammad Zahid Muneer by phone or WhatsApp on 0300-5421753, by email at muhammad.zahidmuneer@gmail.com, or by visiting the chamber at Chamber No. 27, Haroon Ur Rasheed Block, F-8 Markaz, Islamabad. Walk-in consultations are welcome during office hours (Monday–Friday, 9 AM–6 PM). Saturday appointments are available on request.',
+          'The first step is to review the tenancy agreement, payment history, and any notice or breach notice served. We advise whether a settlement, legal notice, or formal litigation is the best next step. In many matters, a precise letter or filing can resolve the dispute without unnecessary delay.',
       },
       {
-        question: 'How are legal fees structured?',
+        question: 'Can I recover unpaid rent or security deposit?',
         answer:
-          'Fees are discussed transparently at the initial consultation. For defined matters (bail applications, divorce filings, contract drafting), a fixed fee is agreed upfront. For ongoing litigation, fees may be structured as a retainer or per-hearing basis. There are no hidden charges — all fees are agreed in writing before any work begins.',
+          'Yes, if the legal basis for the claim is clear. We handle rent recovery, lease enforcement, security deposit disputes, and claims for damages or possession. The best strategy depends on the evidence, the contract terms, and whether the dispute is before a tribunal or court.',
+      },
+    ],
+  },
+  {
+    id: 'traffic-ticket-litigation',
+    title: 'Traffic Ticket Litigation',
+    icon: 'directions_car',
+    items: [
+      {
+        question: 'Can a traffic ticket be challenged?',
+        answer:
+          'Yes, many traffic citations can be challenged if there are procedural defects, factual weaknesses, or a lack of legal basis for the charge. We review the notice, identify legal defences, and advise whether the matter can be reduced, withdrawn, or contested before the relevant authority or court.',
       },
       {
-        question: 'Do you offer online or remote consultations?',
+        question: 'What happens if my licence is suspended?',
         answer:
-          'Yes. Clients located outside Islamabad, or overseas Pakistanis dealing with legal matters in Pakistan, can arrange consultations by phone or video call. We regularly advise clients based in other cities and abroad, and can handle most paperwork and filings remotely with appropriate authorisations. Contact us on WhatsApp to arrange a remote consultation.',
+          'A licence suspension can seriously affect your ability to drive and work. We assess whether the suspension was lawful, whether there are grounds to appeal, and what steps are available to protect your driving rights while the matter is being addressed.',
+      },
+    ],
+  },
+  {
+    id: 'will-writing',
+    title: 'Will Writing',
+    icon: 'edit_document',
+    items: [
+      {
+        question: 'Why is a will important?',
+        answer:
+          'A valid will ensures that your assets are distributed according to your wishes and helps reduce uncertainty, disputes, and legal delays after your death. It also allows you to appoint executors and make specific arrangements for children, guardianship, or property.',
+      },
+      {
+        question: 'Do you also help with existing wills or estate planning?',
+        answer:
+          'Yes. We can review existing will documents, advise on deficiencies, and support clients with estate planning decisions to minimize future disputes. Our work is designed to make the document clear, enforceable, and aligned with the family’s needs and applicable law.',
+      },
+    ],
+  },
+  {
+    id: 'workers-compensation-litigation',
+    title: "Workers' Compensation Litigation",
+    icon: 'engineering',
+    items: [
+      {
+        question: 'What if I was injured at work and my compensation was denied?',
+        answer:
+          'If a workplace injury was not compensated fairly, you may have the right to pursue a claim against the employer and/or relevant insurer. We review the incident, medical evidence, and legal basis for the claim to determine the appropriate next step and the strongest available remedy.',
+      },
+      {
+        question: 'Can I claim compensation for an occupational injury or fatal accident?',
+        answer:
+          'Yes, where the legal criteria are met. We represent workers in claims involving workplace injuries, occupational diseases, or fatal accident compensation, and we also assist with settlement negotiations or litigation when an employer or insurer refuses a fair outcome.',
       },
     ],
   },

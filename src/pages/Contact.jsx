@@ -11,13 +11,13 @@ import { submitToFormspree } from '../utils/formspree'
 import { buildWhatsAppUrl } from '../utils/whatsapp'
 
 const SUBJECTS = [
-  'Criminal Law (Bail, FIR, Trial)',
-  'Family Law (Divorce / Khula)',
-  'Child Custody & Maintenance',
-  'Property & Land Dispute',
-  'Civil Litigation & Money Recovery',
-  'Constitutional & Writ Matter',
-  'Contract / Legal Advisory',
+  'Civil Rights Litigation',
+  'Disability Benefits Litigation',
+  'Eviction Litigation',
+  'Landlord & Tenant Litigation',
+  'Traffic Ticket Litigation',
+  'Will Writing',
+  "Workers' Compensation Litigation",
   'General Enquiry',
 ]
 
@@ -64,7 +64,7 @@ export default function Contact() {
     <>
       <PageMeta
         title="Contact"
-        description={`Get in touch with ${config.firmName}. Legal advisory, criminal defence, family law, and property disputes in Islamabad. Phone, email, WhatsApp and in-person consultations available.`}
+        description={`Get in touch with ${config.firmName}. Civil rights litigation, disability benefits disputes, eviction and tenant matters, traffic ticket defence, will writing, and workers' compensation claims in Islamabad. Phone, email, WhatsApp and in-person consultations available.`}
       />
 
       {/* ── HERO ─────────────────────────────────────────────────── */}

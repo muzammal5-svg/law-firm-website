@@ -13,7 +13,7 @@ export default function Testimonials() {
     <>
       <PageMeta
         title="Client Testimonials"
-        description={`See what clients say about ${attorney.name} — Advocate High Court Islamabad. Trusted by ${stats.clientsServed} clients across Islamabad for criminal, family, and civil legal matters.`}
+        description={`See what clients say about ${attorney.name} — Advocate High Court Islamabad. Trusted by ${stats.clientsServed} clients for civil rights, disability benefits, eviction, tenant matters, traffic ticket defence, wills, and workers’ compensation litigation.`}
       />
 
       {/* ── HERO ─────────────────────────────────────────────────── */}
@@ -143,8 +143,8 @@ export default function Testimonials() {
             {[
               { icon: 'gavel', label: 'Advocate High Court', sub: 'Islamabad High Court' },
               { icon: 'workspace_premium', label: 'Islamabad Bar Council', sub: 'Enrolled Member' },
-              { icon: 'star', label: '5.0 ★ Google Rating', sub: '34 Verified Reviews' },
-              { icon: 'verified', label: '15+ Years Experience', sub: 'Criminal & Family Law' },
+              { icon: 'star', label: '5.0 ★ Google Rating', sub: 'Verified Reviews' },
+              { icon: 'verified', label: '15+ Years Experience', sub: 'Litigation & Advisory' },
             ].map((badge, i) => (
               <AnimateOnScroll key={i} animation="fadeInUp" delay={i * 0.07}>
                 <div className="flex flex-col items-center text-center p-5 rounded-xl border border-luxe-gold/15 hover:border-luxe-gold/40 hover:shadow-md transition-all">

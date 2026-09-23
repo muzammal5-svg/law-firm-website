@@ -171,7 +171,7 @@ export default function Footer() {
 
               {/* Branding */}
               <p className="font-sans text-caption text-luxe-cream/40 text-center md:text-right">
-                Criminal · Family · Legal Advisory
+                Civil Rights · Disability Benefits · Litigation
               </p>
             </div>
 

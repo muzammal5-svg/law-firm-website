@@ -6,8 +6,8 @@ import { buildWhatsAppUrl } from '../../utils/whatsapp'
  * Call-to-action banner sections with luxury design
  */
 export default function CTABanner({ 
-  title = 'Clarity in Every Financial Decision',
-  subtitle = 'Expert tax, financial, and corporate advisory tailored to your circumstances',
+  title = 'Clear Legal Guidance for Life’s Most Important Claims',
+  subtitle = 'Expert support in civil rights, disability benefits, eviction, tenant disputes, traffic matters, wills, and workers’ compensation litigation',
   variant = 'primary'
 }) {
   const whatsappUrl = buildWhatsAppUrl()
@@ -71,7 +71,7 @@ export default function CTABanner({
         </div>
 
         <p className="font-sans text-xs text-luxe-cream/60 mt-8 tracking-wide">
-          ✓ Free Initial Consultation &nbsp;•&nbsp; ✓ Islamabad High Court &nbsp;•&nbsp; ✓ Criminal · Family · Legal
+          ✓ Free Initial Consultation &nbsp;•&nbsp; ✓ Litigation Support &nbsp;•&nbsp; ✓ Civil Rights · Benefits · Tenant Matters
         </p>
       </div>
     </section>

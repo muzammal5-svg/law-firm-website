@@ -6,21 +6,23 @@
 import firmConfig from './firmConfig'
 
 const serviceImages = {
-  'criminal-law':           'https://images.unsplash.com/photo-1589578228447-e1a4e481c6c8?w=800&h=600&fit=crop',
-  'family-law':             'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=600&fit=crop',
-  'legal-advisory':         'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=600&fit=crop',
-  'property-law':           'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop',
-  'civil-litigation':       'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&h=600&fit=crop',
-  'constitutional-matters': 'https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=800&h=600&fit=crop',
+  'civil-rights-litigation':         'https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=800&h=600&fit=crop',
+  'disability-benefits-litigation':  'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=600&fit=crop',
+  'eviction-litigation':             'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop',
+  'landlord-tenant-litigation':      'https://images.unsplash.com/photo-1460317442991-0ec209397118?w=800&h=600&fit=crop',
+  'traffic-ticket-litigation':       'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&h=600&fit=crop',
+  'will-writing':                    'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=600&fit=crop',
+  'workers-compensation-litigation': 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop',
 }
 
 const serviceImageAlts = {
-  'criminal-law':           'Courtroom gavel representing criminal law defence',
-  'family-law':             'Family representing family law services',
-  'legal-advisory':         'Legal documents and pen representing advisory services',
-  'property-law':           'Property keys and documents representing real estate law',
-  'civil-litigation':       'Scales of justice representing civil litigation',
-  'constitutional-matters': 'Constitution book representing constitutional law',
+  'civil-rights-litigation':         'Constitution and legal books representing civil rights litigation',
+  'disability-benefits-litigation':  'Medical records representing disability benefits litigation',
+  'eviction-litigation':             'House keys representing eviction litigation',
+  'landlord-tenant-litigation':      'Residential building representing landlord and tenant litigation',
+  'traffic-ticket-litigation':       'Car representing traffic ticket litigation',
+  'will-writing':                    'Legal documents and pen representing will writing',
+  'workers-compensation-litigation': 'Workplace team representing workers compensation litigation',
 }
 
 export const practiceAreas = firmConfig.practiceAreas.map((area) => ({

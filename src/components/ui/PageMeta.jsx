@@ -13,13 +13,13 @@ export default function PageMeta({
   const siteName = 'Rana M. Zahid Muneer Advocate'
   const fullTitle = title
     ? `${title} | ${siteName}`
-    : 'Rana M. Zahid Muneer Advocate | High Court Islamabad – Criminal, Family & Legal Advisory'
+    : 'Rana M. Zahid Muneer Advocate | Civil Rights, Disability Benefits, Eviction & Litigation'
 
   return (
     <Helmet>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
-      <meta name="keywords" content="Advocate High Court Islamabad, Criminal Lawyer Islamabad, Family Lawyer Islamabad, Divorce Lawyer Pakistan, Khula Lawyer Islamabad, Bail Application Islamabad, Property Dispute Lawyer Islamabad, Rana Zahid Muneer Advocate, F-8 Markaz Lawyer, Legal Advisor Islamabad" />
+      <meta name="keywords" content="Civil rights litigation, disability benefits litigation, eviction litigation, landlord and tenant litigation, traffic ticket litigation, will writing, workers compensation litigation, Rana Zahid Muneer Advocate, Islamabad legal services" />
       <meta property="og:site_name" content={siteName} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />

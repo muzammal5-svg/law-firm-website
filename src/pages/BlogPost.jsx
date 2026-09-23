@@ -111,10 +111,10 @@ export default function BlogPost() {
                 <div className="flex-1">
                   <h4 className="font-serif text-headline-sm text-luxe-black mb-1">Rana Muhammad Zahid Muneer</h4>
                   <p className="font-sans text-xs text-luxe-gold font-semibold tracking-wide mb-2">
-                    Advocate High Court · Islamabad Bar Council · Criminal | Family | Legal Advisor
+                    Advocate High Court · Islamabad Bar Council · Civil Rights | Disability Benefits | Litigation
                   </p>
                   <p className="font-sans text-body-md text-luxe-grey leading-relaxed">
-                    With over 15 years of experience practising before the Islamabad High Court and subordinate courts, Rana Muhammad Zahid Muneer provides expert legal representation in criminal, family, property, and civil matters. Rated 5.0 ★ on Google with 34 verified client reviews.
+                    With over 15 years of experience practising before the Islamabad High Court and subordinate courts, Rana Muhammad Zahid Muneer provides strategic advice and representation in civil rights, disability benefits, eviction, landlord-tenant, traffic, will, and workers’ compensation matters. Rated 5.0 ★ on Google with 34 verified client reviews.
                   </p>
                 </div>
               </div>

@@ -4,12 +4,13 @@ import { formatInTimeZone } from 'date-fns-tz'
 import MaterialIcon from '../ui/MaterialIcon'
 
 const CASE_CATEGORIES = [
-  { value: 'property_dispute', label: 'Property Dispute' },
-  { value: 'inheritance', label: 'Inheritance/Succession' },
-  { value: 'family_law', label: 'Family Law' },
-  { value: 'power_of_attorney', label: 'Power of Attorney' },
-  { value: 'court_representation', label: 'Court Representation' },
-  { value: 'nadra_fia', label: 'NADRA/FIA Matter' },
+  { value: 'civil_rights_litigation', label: 'Civil Rights Litigation' },
+  { value: 'disability_benefits_litigation', label: 'Disability Benefits Litigation' },
+  { value: 'eviction_litigation', label: 'Eviction Litigation' },
+  { value: 'landlord_tenant_litigation', label: 'Landlord & Tenant Litigation' },
+  { value: 'traffic_ticket_litigation', label: 'Traffic Ticket Litigation' },
+  { value: 'will_writing', label: 'Will Writing' },
+  { value: 'workers_compensation_litigation', label: "Workers' Compensation Litigation" },
   { value: 'other', label: 'Other' },
 ]
 

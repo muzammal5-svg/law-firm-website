@@ -46,7 +46,7 @@ export default function About() {
 
               {/* Credential badges */}
               <div className="flex flex-wrap gap-3 pt-2">
-                {['Advocate High Court', 'Islamabad Bar Council', 'Criminal Law', 'Family Law', '5.0 ★ Rated'].map((c) => (
+                {['Advocate High Court', 'Islamabad Bar Council', 'Civil Rights Litigation', 'Disability Benefits', 'Will Writing'].map((c) => (
                   <span
                     key={c}
                     className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-white/5 border border-white/15 text-white/70 font-sans text-xs font-semibold tracking-wide"
@@ -232,7 +232,7 @@ export default function About() {
             <h2 className="font-serif text-[34px] text-luxe-black">Professional Recognition</h2>
             <div className="h-0.5 w-16 bg-luxe-gold rounded-full mx-auto mt-4 mb-4" />
             <p className="font-sans text-luxe-grey text-base max-w-xl mx-auto">
-              Formally recognised by the Islamabad High Court with an established practice across criminal, family, and civil law.
+              Formally recognised by the Islamabad High Court with a litigation practice spanning civil rights, disability benefits, eviction, tenant disputes, traffic tickets, wills, and workers’ compensation matters.
             </p>
           </AnimateOnScroll>
 

@@ -20,12 +20,13 @@ const COUNTRY_CODES = [
 ]
 
 const SERVICES = [
-  { value: 'criminal-law', label: 'Criminal Law (Bail, Trial, FIR)' },
-  { value: 'family-law', label: 'Family Law (Divorce, Khula, Custody)' },
-  { value: 'legal-advisory', label: 'Legal Advisory & Contracts' },
-  { value: 'property-law', label: 'Property & Land Disputes' },
-  { value: 'civil-litigation', label: 'Civil Litigation & Money Recovery' },
-  { value: 'constitutional-matters', label: 'Constitutional & Writ Matters' },
+  { value: 'civil-rights-litigation', label: 'Civil Rights Litigation' },
+  { value: 'disability-benefits-litigation', label: 'Disability Benefits Litigation' },
+  { value: 'eviction-litigation', label: 'Eviction Litigation' },
+  { value: 'landlord-tenant-litigation', label: 'Landlord & Tenant Litigation' },
+  { value: 'traffic-ticket-litigation', label: 'Traffic Ticket Litigation' },
+  { value: 'will-writing', label: 'Will Writing' },
+  { value: 'workers-compensation-litigation', label: "Workers' Compensation Litigation" },
   { value: 'other', label: 'Other / Not Sure Yet' },
 ]
 
@@ -45,7 +46,7 @@ export default function Consultation() {
     name: '',
     email: '',
     phone: '',
-    service: 'criminal-law',
+    service: 'civil-rights-litigation',
     date: null,
     time: '09:00',
     message: '',
@@ -90,7 +91,7 @@ export default function Consultation() {
       })
 
       setShowSuccess(true)
-      setFormData({ name: '', email: '', phone: '', service: 'criminal-law', date: null, time: '09:00', message: '' })
+      setFormData({ name: '', email: '', phone: '', service: 'civil-rights-litigation', date: null, time: '09:00', message: '' })
     } catch (err) {
       setErrors({ submit: err.message || 'Failed to submit. Please try again.' })
     } finally {
@@ -102,7 +103,7 @@ export default function Consultation() {
     <>
       <PageMeta
         title="Book a Free Consultation"
-        description={`Book a free consultation with ${config.attorney.name} — Advocate High Court Islamabad. Criminal, family, property, and civil legal matters.`}
+        description={`Book a free consultation with ${config.attorney.name} — Advocate High Court Islamabad. Civil rights, disability benefits, eviction, landlord & tenant, traffic, will writing, and workers’ compensation matters.`}
       />
 
       {/* ── HERO ─────────────────────────────────────────────────── */}
@@ -280,7 +281,7 @@ export default function Consultation() {
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="E.g. I need help with a bail application, I want to file for khula, I have a property dispute in Islamabad..."
+                    placeholder="E.g. I need help with a civil rights claim, disability benefit dispute, eviction matter, traffic ticket issue, will writing, or workers' compensation case..."
                     rows={4}
                     className="w-full px-4 py-3 rounded-lg font-sans text-sm border-2 border-luxe-gold/20 focus:border-luxe-gold focus:outline-none bg-luxe-cream/50 text-luxe-black transition-colors resize-none"
                   />

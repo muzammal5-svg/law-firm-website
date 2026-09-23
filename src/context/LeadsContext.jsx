@@ -6,7 +6,7 @@ const INITIAL_LEADS = [
   {
     id: '1',
     name: 'Sarah Jenkins',
-    practiceArea: 'Family Law',
+    practiceArea: 'Civil Rights Litigation',
     phone: '+44 7700 900012',
     email: 'sarah.j@email.com',
     status: 'New',
@@ -16,7 +16,7 @@ const INITIAL_LEADS = [
   {
     id: '2',
     name: 'Mark Rossi',
-    practiceArea: 'Contract Dispute',
+    practiceArea: 'Disability Benefits Litigation',
     phone: '+44 7700 900543',
     email: 'mark.rossi@email.com',
     status: 'Booked',
@@ -26,7 +26,7 @@ const INITIAL_LEADS = [
   {
     id: '3',
     name: 'Elena Lopez',
-    practiceArea: 'Property Law',
+    practiceArea: 'Eviction Litigation',
     phone: '+44 7700 900888',
     email: 'elena.lopez@email.com',
     status: 'Contacted',
